@@ -1,6 +1,4 @@
-// src/pages/Home.jsx
-// Updated to use shared projects data and support preview modal on homepage cards.
-// All hero/stack/CTA markup is unchanged. Only the projects section is wired up.
+
 
 import { Link } from 'react-router-dom'
 import useScrollReveal from '../hooks/useScrollReveal'
@@ -44,48 +42,51 @@ export default function Home() {
   return (
     <>
       {/* ── Hero ── */}
-      <header className="relative max-w-4xl mx-auto text-center px-6 pt-28 pb-24">
-        <div
-          className="absolute top-16 left-1/2 -translate-x-1/2 w-[520px] h-[320px] rounded-full opacity-20 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse, #c7c7cc 0%, transparent 70%)', filter: 'blur(48px)' }}
-        />
+      {/* ── Hero ── */}
+<header className="relative max-w-4xl mx-auto text-center px-6 pt-28 pb-24">
+  <div
+    className="absolute top-16 left-1/2 -translate-x-1/2 w-[520px] h-[320px] rounded-full opacity-20 pointer-events-none"
+    style={{
+      background: 'radial-gradient(ellipse, #c7c7cc 0%, transparent 70%)',
+      filter: 'blur(48px)'
+    }}
+  />
 
-        <div className="fade-up delay-1 flex flex-col items-center gap-4 mb-2">
-          <div className="w-16 h-16 rounded-full overflow-hidden ring-2 ring-white shadow-apple-lg">
-            <img
-              src="https://i.pinimg.com/control1/736x/fa/c5/9c/fac59cceb286c0e57ff3ff654938ef20.jpg"
-              alt="Wayne Kiprotich"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <PillTag>Full-Stack Developer · Nairobi</PillTag>
-        </div>
+  <div className="fade-up delay-1 flex flex-col items-center gap-4 mb-3">
+    <div className="w-24 h-24 rounded-full overflow-hidden ring-2 ring-white shadow-apple-lg">
+      <img
+        src="https://i.pinimg.com/control1/736x/fa/c5/9c/fac59cceb286c0e57ff3ff654938ef20.jpg"
+        alt="Wayne Kiprotich"
+        className="w-full h-full object-cover"
+      />
+    </div>
 
-        <h1 className="fade-up delay-2 font-serif text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-tight mb-6 text-ink">
-          Mastering full&#8209;stack<br />
-          <em className="not-italic text-stone">engineering.</em>
-        </h1>
+    <PillTag>Full-Stack Developer · Nairobi</PillTag>
+  </div>
 
-        <p className="fade-up delay-3 text-pebble max-w-lg mx-auto mb-10 text-[15px] leading-relaxed">
-          Building clean, scalable and modern web systems with React, Python and APIs.
-        </p>
+    <h1 className="fade-up delay-2 font-serif text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-tight mb-6 text-ink">
+      Hi! I'm Wayne Kiprotich.<br />
+      <span className="text-3xl sm:text-4xl md:text-5xl">
+        Building modern web systems.
+      </span>
+    </h1>
+  
+  <div className="fade-up delay-4 flex flex-wrap justify-center gap-3">
+    <Link
+      to="/projects"
+      className="bg-black text-white text-[14px] font-medium px-7 py-3 rounded-full hover:opacity-80 transition"
+    >
+      View My Work
+    </Link>
 
-        <div className="fade-up delay-4 flex flex-wrap justify-center gap-3">
-          <Link
-            to="/projects"
-            className="bg-black text-white text-[14px] font-medium px-7 py-3 rounded-full hover:opacity-80 transition"
-          >
-            View Work
-          </Link>
-
-          <Link
-            to="/about"
-            className="bg-black text-white text-[14px] font-medium px-7 py-3 rounded-full hover:opacity-80 transition"
-          >
-            About Me
-          </Link>
-        </div>
-      </header>
+    <Link
+      to="/about"
+      className="bg-black text-white text-[14px] font-medium px-7 py-3 rounded-full hover:opacity-80 transition"
+    >
+      About Me
+    </Link>
+  </div>
+</header>
 
       {/* ── Stack ── */}
       <section className="max-w-5xl mx-auto px-6 py-16">

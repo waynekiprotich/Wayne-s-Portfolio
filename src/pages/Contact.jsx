@@ -3,6 +3,8 @@ import PillTag from '../components/UI/PillTag'
 import SectionDivider from '../components/UI/SectionDivider'
 
 const EMAIL = 'waynekip123@icloud.com'
+const PHONE = '+25476870636'
+const INSTAGRAM = 'https://www.instagram.com/mr._.w.a.y.n.e?igsh=MWYzcnFzbXR4eXdyOA%3D%3D&utm_source=qr'
 
 const socials = [
   {
@@ -23,6 +25,24 @@ const socials = [
       </svg>
     ),
   },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/mr._.w.a.y.n.e?igsh=MWYzcnFzbXR4eXdyOA%3D%3D&utm_source=qr',
+    icon: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm10 2H7a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm-5 4a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6zm5.5-.9a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0z" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Phone',
+    href: `tel:${PHONE}`,
+    icon: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M6.6 10.8c1.6 3.2 4.4 5.9 7.6 7.6l2.5-2.5c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.3 22 2 13.7 2 3c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z" />
+      </svg>
+    ),
+  },
 ]
 
 export default function Contact() {
@@ -31,7 +51,6 @@ export default function Contact() {
   return (
     <section className="max-w-5xl mx-auto px-6 pt-20 pb-24">
 
-      {/* Header */}
       <div className="text-center mb-16 fade-up delay-1">
         <PillTag>Get in Touch</PillTag>
 
@@ -44,13 +63,10 @@ export default function Contact() {
         </p>
       </div>
 
-      {/* MAIN GRID (equal square feel) */}
       <div className="grid md:grid-cols-2 gap-6 items-stretch">
 
-        {/* LEFT COLUMN (stacked equal height look) */}
         <div className="flex flex-col gap-4 h-full">
 
-          {/* EMAIL */}
           <div className="reveal bg-white rounded-3xl shadow-apple p-6 flex-1 flex flex-col justify-between">
             <div>
               <PillTag>Email</PillTag>
@@ -73,7 +89,6 @@ export default function Contact() {
             </a>
           </div>
 
-          {/* GITHUB TILE */}
           <a
             href="https://github.com/waynekiprotich"
             target="_blank"
@@ -82,9 +97,7 @@ export default function Contact() {
           >
             <div>
               <p className="text-[12px] text-white/70">See my work</p>
-              <p className="font-serif text-2xl mt-1">
-                GitHub Projects
-              </p>
+              <p className="font-serif text-2xl mt-1">GitHub Projects</p>
             </div>
 
             <svg className="w-6 h-6 text-white/80 mt-8" fill="currentColor" viewBox="0 0 24 24">
@@ -94,24 +107,16 @@ export default function Contact() {
 
         </div>
 
-        {/* RIGHT COLUMN */}
         <div className="flex flex-col gap-4 h-full">
 
-          {/* Availability */}
           <div className="reveal bg-white rounded-3xl shadow-apple p-7 flex items-center gap-4 flex-1">
             <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
-
             <div>
-              <p className="font-semibold text-ink text-[14px]">
-                Available for work
-              </p>
-              <p className="text-stone text-[12px] mt-0.5">
-                Open to full-time or contract roles
-              </p>
+              <p className="font-semibold text-ink text-[14px]">Available for work</p>
+              <p className="text-stone text-[12px] mt-0.5">Open to full-time or contract roles</p>
             </div>
           </div>
 
-          {/* Socials */}
           <div className="reveal bg-white rounded-3xl shadow-apple p-7 flex-1">
             <PillTag>Socials</PillTag>
 
@@ -132,15 +137,12 @@ export default function Contact() {
                     {label}
                   </span>
 
-                  <span className="ml-auto text-stone text-[12px]">
-                    ↗
-                  </span>
+                  <span className="ml-auto text-stone text-[12px]">↗</span>
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Location */}
           <div className="reveal bg-white rounded-3xl shadow-apple p-7 flex-1">
             <PillTag>Location</PillTag>
 
