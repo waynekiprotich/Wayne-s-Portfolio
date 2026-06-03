@@ -1,9 +1,16 @@
+// src/pages/Home.jsx
+// Updated to use shared projects data and support preview modal on homepage cards.
+// All hero/stack/CTA markup is unchanged. Only the projects section is wired up.
+
 import { Link } from 'react-router-dom'
 import useScrollReveal from '../hooks/useScrollReveal'
+import useModal from '../hooks/useModal'
 import PillTag from '../components/UI/PillTag'
 import SectionDivider from '../components/UI/SectionDivider'
 import StackCard from '../components/UI/StackCard'
 import ProjectCard from '../components/UI/ProjectCard'
+import ProjectPreviewModal from '../components/UI/ProjectPreviewModal'
+import projects from '../data/projects'
 
 const FrontendIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A0A0B" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -27,50 +34,16 @@ const ToolsIcon = () => (
   </svg>
 )
 
-const projects = [
-  {
-    title: 'Stack-Battle KE',
-    description: 'Coding platform',
-    category: 'Stack-Battle KE',
-    image: '/stack-battle-ke.png',
-    delay: 0,
-    codeHref: 'https://github.com/Leevy-Otieno/Stacke_Battleke_frontend',
-    liveHref: 'https://stacke-battleke-frontend.vercel.app',
-  },
-  {
-    title: 'AI Scraper',
-    description: 'Automation tool',
-    category: 'AI Tool',
-    image: '/ai-scraper.png',
-    delay: 0.07,
-    codeHref: 'https://github.com/waynekiprotich',
-    liveHref: '#',
-  },
-  {
-    title: 'Portfolio',
-    description: 'Developer site',
-    category: 'Portfolio',
-    image: '/portfolio.png',
-    delay: 0.14,
-    codeHref: 'https://github.com/waynekiprotich',
-    liveHref: '#',
-  },
-  {
-    title: 'NexusFlow',
-    description: 'Platform',
-    category: 'System',
-    image: '/nexusflow.png',
-    delay: 0.21,
-    codeHref: 'https://github.com/waynekiprotich',
-    liveHref: '#',
-  },
-]
+// Show only first 4 projects on homepage
+const homeProjects = projects.slice(0, 4)
 
 export default function Home() {
   useScrollReveal()
+  const { selectedProject, openModal, closeModal } = useModal()
 
   return (
     <>
+      {/* ── Hero ── */}
       <header className="relative max-w-4xl mx-auto text-center px-6 pt-28 pb-24">
         <div
           className="absolute top-16 left-1/2 -translate-x-1/2 w-[520px] h-[320px] rounded-full opacity-20 pointer-events-none"
@@ -114,6 +87,7 @@ export default function Home() {
         </div>
       </header>
 
+      {/* ── Stack ── */}
       <section className="max-w-5xl mx-auto px-6 py-16">
         <div className="reveal text-center mb-12">
           <PillTag>Capabilities</PillTag>
@@ -128,6 +102,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Projects preview ── */}
       <section className="max-w-5xl mx-auto px-6 py-16">
         <div className="reveal flex items-end justify-between mb-10">
           <div>
@@ -142,12 +117,13 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {projects.map((p) => (
-            <ProjectCard key={p.title} {...p} />
+          {homeProjects.map((p) => (
+            <ProjectCard key={p.id} {...p} onPreview={openModal} />
           ))}
         </div>
       </section>
 
+      {/* ── CTA ── */}
       <section className="max-w-5xl mx-auto px-6 py-16 pb-24">
         <div className="reveal bg-white rounded-4xl px-8 py-16 sm:py-20 text-center shadow-apple relative overflow-hidden">
           <div
@@ -173,6 +149,11 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      {/* Modal — rendered at page root level */}
+      {selectedProject && (
+        <ProjectPreviewModal project={selectedProject} onClose={closeModal} />
+      )}
     </>
   )
 }

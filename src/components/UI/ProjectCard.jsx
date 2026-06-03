@@ -1,38 +1,124 @@
-export default function ProjectCard({ title, description, category, thumbStyle = {}, delay = 0, codeHref = '#', liveHref = '#' }) {
+// src/components/UI/ProjectCard.jsx
+// Enhanced ProjectCard — supports previewImage, onPreview callback, and featured badge.
+// Fully backward compatible: existing props (title, description, category, thumbStyle,
+// delay, codeHref, liveHref) continue to work unchanged.
+
+import PillTag from './PillTag'
+
+export default function ProjectCard({
+  // new fields
+  id,
+  tags = [],
+  tech = [],
+  previewImage = '',
+  featured = false,
+  onPreview,
+  // existing fields (kept exactly)
+  title,
+  description,
+  category,
+  thumbStyle = {},
+  delay = 0,
+  codeHref = '#',
+  liveHref = '#',
+  // alias support from projects.js
+  github,
+  live,
+}) {
+  const resolvedCode = github || codeHref
+  const resolvedLive = live || liveHref
+  const resolvedTags = tags.length ? tags : tech
+
   return (
-    <div
-      className="reveal project-card bg-white rounded-3xl overflow-hidden shadow-apple"
+    <article
+      className="reveal project-card bg-white rounded-3xl overflow-hidden shadow-apple group cursor-pointer"
       style={{ transitionDelay: `${delay}s` }}
+      onClick={() => onPreview && onPreview({ id, title, description, category, tags: resolvedTags, tech, previewImage, codeHref: resolvedCode, liveHref: resolvedLive, featured })}
+      role={onPreview ? 'button' : undefined}
+      tabIndex={onPreview ? 0 : undefined}
+      onKeyDown={(e) => {
+        if (onPreview && (e.key === 'Enter' || e.key === ' ')) {
+          e.preventDefault()
+          onPreview({ id, title, description, category, tags: resolvedTags, tech, previewImage, codeHref: resolvedCode, liveHref: resolvedLive, featured })
+        }
+      }}
+      aria-label={onPreview ? `View ${title} project details` : undefined}
     >
       {/* Thumbnail */}
       <div
-        className="card-thumb aspect-[4/3] flex items-end p-4"
-        style={thumbStyle}
+        className="card-thumb aspect-video flex items-end p-4 relative overflow-hidden bg-fog"
+        style={!previewImage ? thumbStyle : {}}
       >
-        <span className="text-[10px] font-semibold uppercase tracking-[0.1em] text-pebble/60">
+        {previewImage ? (
+          <img
+            src={previewImage}
+            alt={`${title} preview`}
+            className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-700 group-hover:scale-105"
+          />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-fog to-stone/20 z-0" />
+        )}
+
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent z-10" />
+
+        {/* Category label */}
+        <span className="relative z-20 text-[10px] font-semibold uppercase tracking-[0.1em] text-white/90">
           {category}
         </span>
+
+        {/* Featured badge */}
+        {featured && (
+          <span className="absolute top-3 right-3 z-20 bg-white text-ink text-[9px] font-semibold uppercase tracking-widest px-2.5 py-1 rounded-full shadow-apple">
+            Featured
+          </span>
+        )}
+
+        {/* Preview hint overlay on hover */}
+        {onPreview && (
+          <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+            <span className="opacity-0 group-hover:opacity-100 bg-white text-ink text-[11px] font-semibold px-4 py-2 rounded-full shadow-apple-lg translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+              View Details
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Body */}
-      <div className="p-4">
-        <h3 className="font-semibold text-[14px] text-ink mb-1">{title}</h3>
-        <p className="text-[12px] text-stone mb-4 leading-snug">{description}</p>
+      <div className="p-5">
+        <h3 className="font-semibold text-[15px] text-ink mb-1.5 leading-snug">{title}</h3>
+        <p className="text-[12px] text-stone mb-4 leading-relaxed line-clamp-2">{description}</p>
+
+        {/* Tags */}
+        {resolvedTags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {resolvedTags.slice(0, 4).map((tag) => (
+              <PillTag key={tag}>{tag}</PillTag>
+            ))}
+          </div>
+        )}
+
         <div className="flex gap-2">
           <a
-            href={codeHref}
-            className="bg-black text-white hover:opacity-80 transition flex-1 text-center text-[11px] font-medium py-2 rounded-full"
+            href={resolvedCode}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="bg-black text-white hover:opacity-80 transition flex-1 text-center text-[11px] font-medium py-2.5 rounded-full"
           >
             Code
           </a>
           <a
-            href={liveHref}
-            className="bg-black text-white hover:opacity-80 transition flex-1 text-center text-[11px] font-medium py-2 rounded-full"
+            href={resolvedLive}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="bg-black/[0.06] text-ink hover:bg-black/[0.12] transition flex-1 text-center text-[11px] font-medium py-2.5 rounded-full"
           >
-            Live
+            Live Demo
           </a>
         </div>
       </div>
-    </div>
+    </article>
   )
 }
