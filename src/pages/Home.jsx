@@ -53,7 +53,7 @@ export default function Home() {
         <div className="fade-up delay-1 flex flex-col items-center gap-4 mb-2">
           <div className="w-16 h-16 rounded-full overflow-hidden ring-2 ring-white shadow-apple-lg">
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
+              src="https://i.pinimg.com/control1/736x/fa/c5/9c/fac59cceb286c0e57ff3ff654938ef20.jpg"
               alt="Wayne Kiprotich"
               className="w-full h-full object-cover"
             />

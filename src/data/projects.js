@@ -45,7 +45,7 @@ const projects = [
     live: '#',
     codeHref: 'https://github.com/waynekiprotich',
     liveHref: '#',
-    previewImage: 'https://images.unsplash.com/photo-1502859065997-c8340d12e022?auto=format&fit=crop&w=800&q=80',
+    previewImage: 'https://i.pinimg.com/736x/8f/5c/f2/8f5cf23c78ba69a7e719643cbbd5ff0b.jpg',
     featured: false,
     delay: 0.14,
   },

@@ -14,13 +14,11 @@ export default function useScrollReveal() {
       { threshold: 0.12 }
     )
 
-    // Observe all .reveal elements present now + any added later
     const observe = () => {
       document.querySelectorAll('.reveal:not(.visible)').forEach((el) => observer.observe(el))
     }
 
     observe()
-    // Re-run after a tick in case elements render asynchronously
     const t = setTimeout(observe, 100)
 
     return () => {

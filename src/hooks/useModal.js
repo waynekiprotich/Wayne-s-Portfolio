@@ -22,23 +22,5 @@ export default function useModal() {
     return () => document.removeEventListener('keydown', handler)
   }, [selectedProject, closeModal])
 
-  useEffect(() => {
-    const html = document.documentElement
-    const body = document.body
-
-    if (selectedProject) {
-      body.style.overflow = 'hidden'
-      html.style.overflow = 'hidden'
-    } else {
-      body.style.overflow = ''
-      html.style.overflow = ''
-    }
-
-    return () => {
-      body.style.overflow = ''
-      html.style.overflow = ''
-    }
-  }, [selectedProject])
-
   return { selectedProject, openModal, closeModal }
 }

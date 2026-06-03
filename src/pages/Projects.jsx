@@ -4,22 +4,10 @@ import PillTag from '../components/UI/PillTag'
 import ProjectCard from '../components/UI/ProjectCard'
 import ProjectPreviewModal from '../components/UI/ProjectPreviewModal'
 import projects from '../data/projects'
-import { useEffect } from 'react'
 
 export default function Projects() {
   useScrollReveal()
   const { selectedProject, openModal, closeModal } = useModal()
-
-  // 🔥 IMPORTANT: lock background scroll when modal opens
-  useEffect(() => {
-    document.body.style.overflow = selectedProject ? 'hidden' : 'auto'
-    document.documentElement.style.overflow = selectedProject ? 'hidden' : 'auto'
-
-    return () => {
-      document.body.style.overflow = 'auto'
-      document.documentElement.style.overflow = 'auto'
-    }
-  }, [selectedProject])
 
   return (
     <>
@@ -47,7 +35,6 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* MODAL */}
       {selectedProject && (
         <div className="fixed inset-0 z-[9999]">
           <ProjectPreviewModal
