@@ -26,7 +26,7 @@ export default function About() {
             <div className="w-52 sm:w-60 aspect-[4/5] rounded-[calc(1.5rem-3px)] overflow-hidden">
               <img
                 className="w-full h-full object-cover"
-                src="https://i.pinimg.com/control1/736x/fa/c5/9c/fac59cceb286c0e57ff3ff654938ef20.jpg"
+                src="https://i.pinimg.com/736x/05/19/94/05199421184c6c13ccfdb930a587b546.jpg"
                 alt="Wayne Kiprotich Moi"
               />
             </div>
