@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  body {
+    background: #F5F5F7;
+    color: #0A0A0B;
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* ── Grain overlay ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ── Glassmorphism nav ── */
+.nav-glass {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+/* ── Fade-up animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; opacity: 0; }
+.delay-1 { animation-delay: 0.10s; }
+.delay-2 { animation-delay: 0.22s; }
+.delay-3 { animation-delay: 0.34s; }
+.delay-4 { animation-delay: 0.46s; }
+
+/* ── Page transition ── */
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter {
+  animation: pageFadeIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ── Project card hover ── */
+.project-card {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  will-change: transform;
+}
+.project-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.11), 0 4px 12px rgba(0, 0, 0, 0.07);
+}
+
+/* ── Stack card accent ── */
+.stack-card {
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.25s;
+}
+.stack-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  border-radius: 100px 100px 0 0;
+  background: linear-gradient(90deg, #0A0A0B 0%, #86868B 100%);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.stack-card:hover::before { opacity: 1; }
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Card thumbnail ── */
+.card-thumb {
+  background: linear-gradient(135deg, #E8E8ED 0%, #D1D1D6 100%);
+  position: relative;
+  overflow: hidden;
+}
+.card-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+}
+
+/* ── Section divider ── */
+.section-divider {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #0A0A0B, transparent);
+  border-radius: 100px;
+  margin: 12px 0 20px;
+}
+
+/* ── Profile ring ── */
+.profile-ring {
+  background: linear-gradient(135deg, #E8E8ED 30%, #C7C7CC);
+  padding: 3px;
+  border-radius: 1.5rem;
+  display: inline-block;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+}
