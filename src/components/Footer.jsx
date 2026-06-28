@@ -10,7 +10,7 @@ export default function Footer() {
           </h2>
 
           <p className="text-[11px] text-gray-500">
-            Full-Stack Software Engineer
+            Software Engineer
           </p>
         </div>
 
