@@ -3,9 +3,18 @@ import PillTag from '../components/UI/PillTag'
 import SectionDivider from '../components/UI/SectionDivider'
 
 const skills = [
-  { category: 'Frontend', items: ['React', 'JavaScript', 'Tailwind CSS', 'HTML/CSS'] },
-  { category: 'Backend', items: ['Python', 'Flask', 'REST APIs', 'SQL'] },
-  { category: 'Tools', items: ['Git', 'Docker', 'Ubuntu', 'VS Code'] },
+  { 
+    category: 'Frontend', 
+    items: ['React', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML/CSS'] 
+  },
+  { 
+    category: 'Backend', 
+    items: ['Python', 'Flask', 'C', 'REST APIs', 'SQL'] 
+  },
+  { 
+    category: 'Tools & Cloud', 
+    items: ['AWS', 'Git', 'Docker', 'Ubuntu', 'VS Code'] 
+  },
 ]
 
 export default function About() {
