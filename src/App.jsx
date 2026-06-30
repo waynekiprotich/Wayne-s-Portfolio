@@ -4,8 +4,11 @@ import MainLayout from './layouts/MainLayout'
 import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
+import Blog from './pages/Blog'
 import Contact from './pages/Contact'
 import ProjectPreviewModal from './components/UI/ProjectPreviewModal'
+import Services from './pages/Services'
+import Estimator from './pages/Estimator'
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null)
@@ -23,7 +26,10 @@ export default function App() {
             path="projects"
             element={<Projects setSelectedProject={setSelectedProject} />}
           />
+          <Route path="blog" element={<Blog />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="services" element={<Services />} />
+          <Route path="estimator" element={<Estimator />} />
         </Route>
       </Routes>
 
