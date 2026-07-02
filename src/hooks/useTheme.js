@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react'
 
 export default function useTheme() {
   const [theme, setTheme] = useState(() =>
-    localStorage.getItem('theme') ||
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+    localStorage.getItem('theme') || 'light' 
   )
 
   useEffect(() => {
@@ -11,5 +10,8 @@ export default function useTheme() {
     localStorage.setItem('theme', theme)
   }, [theme])
 
-  return { theme, toggle: () => setTheme(t => (t === 'dark' ? 'light' : 'dark')) }
+  return { 
+    theme, 
+    toggle: () => setTheme(t => (t === 'dark' ? 'light' : 'dark')) 
+  }
 }
