@@ -15,7 +15,7 @@ export default function Projects() {
         <div className="text-center mb-14 fade-up delay-1">
           <PillTag>Portfolio</PillTag>
 
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-ink mt-6 leading-tight">
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-ink dark:text-white mt-6 leading-tight">
             Selected Work
           </h1>
 

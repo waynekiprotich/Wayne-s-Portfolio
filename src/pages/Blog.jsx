@@ -25,7 +25,7 @@ export default function Blog() {
         {posts.map((post, index) => (
           <article
             key={post.id}
-            className="reveal bg-white rounded-3xl p-7 shadow-apple hover:shadow-apple-lg transition-all hover:-translate-y-1 cursor-pointer flex flex-col justify-between group"
+            className="reveal bg-surface rounded-3xl p-7 shadow-apple hover:shadow-apple-lg transition-all hover:-translate-y-1 cursor-pointer flex flex-col justify-between group"
             style={{ transitionDelay: `${index * 0.1}s` }}
           >
             <div>
@@ -36,7 +36,7 @@ export default function Blog() {
                 </time>
               </div>
               
-              <h2 className="font-semibold text-xl text-ink mb-3 leading-snug group-hover:text-stone transition-colors">
+              <h2 className="font-semibold text-xl text-ink mb-3 leading-snug group-hover:text-stone dark:group-hover:text-white/80 transition-colors">
                 {post.title}
               </h2>
               

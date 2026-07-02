@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class', 
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -11,11 +12,13 @@ export default {
         serif: ['DM Serif Display', 'serif'],
       },
       colors: {
-        ink:     '#0A0A0B',
-        mist:    '#F5F5F7',
-        fog:     '#E8E8ED',
-        stone:   '#86868B',
-        pebble:  '#6E6E73',
+        ink:     'rgb(var(--c-ink) / <alpha-value>)',
+        mist:    'rgb(var(--c-mist) / <alpha-value>)',
+        fog:     'rgb(var(--c-fog) / <alpha-value>)',
+        stone:   'rgb(var(--c-stone) / <alpha-value>)',
+        pebble:  'rgb(var(--c-pebble) / <alpha-value>)',
+        surface: 'rgb(var(--c-surface) / <alpha-value>)',
+        page:    'rgb(var(--c-page) / <alpha-value>)',
       },
       borderRadius: {
         '3xl': '1.5rem',

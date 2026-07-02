@@ -96,7 +96,6 @@ export default function Estimator() {
       setError('Please add your name and email so I can reach you.')
       return
     }
-    // TODO: wire this up to your form handler / email service / API route
     console.log('Estimate request submitted:', { ...data, estimate: calculateEstimate() })
     update({ submitted: true })
   }
@@ -124,16 +123,16 @@ export default function Estimator() {
           <span>Step {step} of {steps.length}</span>
           <span>{steps[step - 1].title}</span>
         </div>
-        <div className="w-full bg-gray-100 h-2 rounded-full">
+        <div className="w-full bg-fog dark:bg-white/10 h-2 rounded-full">
           <div
-            className="bg-black h-2 rounded-full transition-all duration-500"
+            className="bg-ink dark:bg-white h-2 rounded-full transition-all duration-500"
             style={{ width: `${(step / steps.length) * 100}%` }}
           />
         </div>
       </div>
 
-      <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 min-h-[320px] flex flex-col">
-        <div className="flex-1">
+      <div className="bg-surface p-8 rounded-3xl shadow-apple-lg border border-fog dark:border-white/5 min-h-[320px] flex flex-col">
+        <div className="flex-1 text-ink">
           {step === 1 && (
             <div className="space-y-3">
               <h2 className="text-xl font-semibold mb-4">What do you need?</h2>
@@ -142,7 +141,7 @@ export default function Estimator() {
                   key={item}
                   onClick={() => { update({ type: item }); goNext() }}
                   className={`w-full text-left p-4 rounded-xl border transition ${
-                    data.type === item ? 'border-black bg-black/[0.03]' : 'border-gray-200 hover:border-black'
+                    data.type === item ? 'border-ink bg-ink/5 dark:border-white dark:bg-white/10' : 'border-fog dark:border-white/10 hover:border-ink dark:hover:border-white'
                   }`}
                 >
                   {item}
@@ -159,7 +158,7 @@ export default function Estimator() {
                   key={item}
                   onClick={() => update({ pages: item })}
                   className={`w-full text-left p-4 rounded-xl border transition ${
-                    data.pages === item ? 'border-black bg-black/[0.03]' : 'border-gray-200 hover:border-black'
+                    data.pages === item ? 'border-ink bg-ink/5 dark:border-white dark:bg-white/10' : 'border-fog dark:border-white/10 hover:border-ink dark:hover:border-white'
                   }`}
                 >
                   {item}
@@ -177,12 +176,12 @@ export default function Estimator() {
                   key={opt.label}
                   onClick={() => toggleFeature(opt.label)}
                   className={`w-full flex items-center justify-between text-left p-4 rounded-xl border transition ${
-                    data.features.includes(opt.label) ? 'border-black bg-black/[0.03]' : 'border-gray-200 hover:border-black'
+                    data.features.includes(opt.label) ? 'border-ink bg-ink/5 dark:border-white dark:bg-white/10' : 'border-fog dark:border-white/10 hover:border-ink dark:hover:border-white'
                   }`}
                 >
                   <span>{opt.label}</span>
                   <span className={`w-5 h-5 rounded-md border flex items-center justify-center text-xs ${
-                    data.features.includes(opt.label) ? 'bg-black border-black text-white' : 'border-gray-300'
+                    data.features.includes(opt.label) ? 'bg-ink border-ink text-surface dark:bg-white dark:border-white dark:text-black' : 'border-fog dark:border-white/20'
                   }`}>
                     {data.features.includes(opt.label) ? '✓' : ''}
                   </span>
@@ -199,7 +198,7 @@ export default function Estimator() {
                   key={item}
                   onClick={() => update({ style: item })}
                   className={`w-full text-left p-4 rounded-xl border transition ${
-                    data.style === item ? 'border-black bg-black/[0.03]' : 'border-gray-200 hover:border-black'
+                    data.style === item ? 'border-ink bg-ink/5 dark:border-white dark:bg-white/10' : 'border-fog dark:border-white/10 hover:border-ink dark:hover:border-white'
                   }`}
                 >
                   {item}
@@ -216,7 +215,7 @@ export default function Estimator() {
                   key={item}
                   onClick={() => update({ timeline: item })}
                   className={`w-full text-left p-4 rounded-xl border transition ${
-                    data.timeline === item ? 'border-black bg-black/[0.03]' : 'border-gray-200 hover:border-black'
+                    data.timeline === item ? 'border-ink bg-ink/5 dark:border-white dark:bg-white/10' : 'border-fog dark:border-white/10 hover:border-ink dark:hover:border-white'
                   }`}
                 >
                   {item}
@@ -233,7 +232,7 @@ export default function Estimator() {
                   key={item}
                   onClick={() => update({ budget: item })}
                   className={`w-full text-left p-4 rounded-xl border transition ${
-                    data.budget === item ? 'border-black bg-black/[0.03]' : 'border-gray-200 hover:border-black'
+                    data.budget === item ? 'border-ink bg-ink/5 dark:border-white dark:bg-white/10' : 'border-fog dark:border-white/10 hover:border-ink dark:hover:border-white'
                   }`}
                 >
                   {item}
@@ -250,7 +249,7 @@ export default function Estimator() {
                 onChange={(e) => update({ description: e.target.value })}
                 placeholder="Briefly describe your project, goals, or any existing branding/references..."
                 rows={6}
-                className="w-full p-4 rounded-xl border border-gray-200 focus:border-black outline-none resize-none"
+                className="w-full p-4 rounded-xl border border-fog dark:border-white/10 focus:border-ink dark:focus:border-white outline-none resize-none bg-transparent"
               />
             </div>
           )}
@@ -258,17 +257,17 @@ export default function Estimator() {
           {step === 8 && !data.submitted && (
             <div>
               <h2 className="text-xl font-semibold mb-2">Your Estimate</h2>
-              <div className="bg-gray-50 p-6 rounded-2xl mb-6 text-sm text-gray-700 space-y-1">
-                <p><strong>Project:</strong> {data.type}</p>
-                <p><strong>Scope:</strong> {data.pages}</p>
-                <p><strong>Features:</strong> {data.features.length ? data.features.join(', ') : 'None selected'}</p>
-                <p><strong>Style:</strong> {data.style}</p>
-                <p><strong>Timeline:</strong> {data.timeline}</p>
-                <div className="pt-3 mt-3 border-t border-gray-200">
-                  <p className="text-lg font-semibold text-ink">
+              <div className="bg-mist dark:bg-white/5 p-6 rounded-2xl mb-6 text-sm text-pebble dark:text-white/80 space-y-1">
+                <p><strong className="text-ink dark:text-white">Project:</strong> {data.type}</p>
+                <p><strong className="text-ink dark:text-white">Scope:</strong> {data.pages}</p>
+                <p><strong className="text-ink dark:text-white">Features:</strong> {data.features.length ? data.features.join(', ') : 'None selected'}</p>
+                <p><strong className="text-ink dark:text-white">Style:</strong> {data.style}</p>
+                <p><strong className="text-ink dark:text-white">Timeline:</strong> {data.timeline}</p>
+                <div className="pt-3 mt-3 border-t border-fog dark:border-white/10">
+                  <p className="text-lg font-semibold text-ink dark:text-white">
                     Estimated Range: KES {calculateEstimate().low.toLocaleString()} – {calculateEstimate().high.toLocaleString()}
                   </p>
-                  <p className="text-xs text-pebble mt-1">Final pricing depends on full requirements — this is a starting point.</p>
+                  <p className="text-xs text-stone mt-1">Final pricing depends on full requirements — this is a starting point.</p>
                 </div>
               </div>
 
@@ -278,21 +277,21 @@ export default function Estimator() {
                   placeholder="Your name"
                   value={data.contact.name}
                   onChange={(e) => update({ contact: { ...data.contact, name: e.target.value } })}
-                  className="p-3 rounded-xl border border-gray-200 focus:border-black outline-none"
+                  className="p-3 rounded-xl border border-fog dark:border-white/10 focus:border-ink dark:focus:border-white outline-none bg-transparent"
                 />
                 <input
                   type="email"
                   placeholder="Your email"
                   value={data.contact.email}
                   onChange={(e) => update({ contact: { ...data.contact, email: e.target.value } })}
-                  className="p-3 rounded-xl border border-gray-200 focus:border-black outline-none"
+                  className="p-3 rounded-xl border border-fog dark:border-white/10 focus:border-ink dark:focus:border-white outline-none bg-transparent"
                 />
               </div>
               {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
 
               <button
                 onClick={handleSubmit}
-                className="w-full mt-4 bg-black text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition"
+                className="w-full mt-4 bg-ink text-surface dark:bg-white dark:text-black px-8 py-3 rounded-full font-medium hover:opacity-80 transition"
               >
                 Send Request
               </button>
@@ -302,18 +301,18 @@ export default function Estimator() {
           {step === 8 && data.submitted && (
             <div className="text-center py-8">
               <h2 className="text-2xl font-semibold mb-3">Request Sent ✓</h2>
-              <p className="text-pebble">Thanks {data.contact.name.split(' ')[0]}! I'll get back to you at {data.contact.email} within 24 hours.</p>
+              <p className="text-pebble dark:text-white/80">Thanks {data.contact.name.split(' ')[0]}! I'll get back to you at {data.contact.email} within 24 hours.</p>
             </div>
           )}
         </div>
 
         {step > 1 && step < 8 && (
-          <div className="flex justify-between mt-8 pt-6 border-t border-gray-100">
-            <button onClick={goBack} className="text-gray-500 underline text-sm">Back</button>
+          <div className="flex justify-between mt-8 pt-6 border-t border-fog dark:border-white/5">
+            <button onClick={goBack} className="text-stone dark:text-pebble underline text-sm">Back</button>
             <button
               onClick={goNext}
               disabled={!canProceed()}
-              className="bg-black text-white px-6 py-2 rounded-full disabled:opacity-30 disabled:cursor-not-allowed transition"
+              className="bg-ink text-surface dark:bg-white dark:text-black px-6 py-2 rounded-full disabled:opacity-30 disabled:cursor-not-allowed transition"
             >
               Next
             </button>
@@ -321,7 +320,7 @@ export default function Estimator() {
         )}
         {step === 8 && !data.submitted && (
           <div className="flex justify-start mt-4">
-            <button onClick={goBack} className="text-gray-500 underline text-sm">Back</button>
+            <button onClick={goBack} className="text-stone dark:text-pebble underline text-sm">Back</button>
           </div>
         )}
       </div>

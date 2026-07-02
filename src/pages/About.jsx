@@ -29,7 +29,7 @@ export default function About() {
         </h1>
       </div>
 
-      <div className="reveal bg-white rounded-4xl shadow-apple p-8 sm:p-12 grid md:grid-cols-2 gap-12 items-center mb-10">
+      <div className="reveal bg-surface rounded-4xl shadow-apple p-8 sm:p-12 grid md:grid-cols-2 gap-12 items-center mb-10">
         <div className="flex justify-center md:justify-start">
           <div className="profile-ring">
             <div className="w-52 sm:w-60 aspect-[4/5] rounded-[calc(1.5rem-3px)] overflow-hidden">
@@ -60,7 +60,7 @@ export default function About() {
             simple, maintainable, and production-ready.
           </p>
 
-          <div className="grid grid-cols-2 gap-6 pt-6 mt-6 border-t border-fog">
+          <div className="grid grid-cols-2 gap-6 pt-6 mt-6 border-t border-fog dark:border-white/10">
             <div>
               <p className="text-[22px] font-semibold text-ink tracking-tight">Nairobi</p>
               <p className="text-xs text-stone mt-1 uppercase tracking-widest">Location</p>
@@ -77,14 +77,14 @@ export default function About() {
         {skills.map(({ category, items }, i) => (
           <div
             key={category}
-            className="reveal bg-white rounded-3xl p-7 shadow-apple"
+            className="reveal bg-surface rounded-3xl p-7 shadow-apple"
             style={{ transitionDelay: `${i * 0.09}s` }}
           >
             <h3 className="font-semibold text-ink mb-4">{category}</h3>
             <ul className="space-y-2">
               {items.map((item) => (
                 <li key={item} className="flex items-center gap-2 text-[14px] text-pebble">
-                  <span className="w-1.5 h-1.5 rounded-full bg-ink/30 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-ink/30 dark:bg-white/30 flex-shrink-0" />
                   {item}
                 </li>
               ))}

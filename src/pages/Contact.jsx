@@ -54,7 +54,7 @@ export default function Contact() {
       <div className="text-center mb-16 fade-up delay-1">
         <PillTag>Get in Touch</PillTag>
 
-        <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-ink mt-6 leading-tight">
+        <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-ink dark:text-white mt-6 leading-tight">
           Let's build something
         </h1>
 
@@ -67,12 +67,12 @@ export default function Contact() {
 
         <div className="flex flex-col gap-4 h-full">
 
-          <div className="reveal bg-white rounded-3xl shadow-apple p-6 flex-1 flex flex-col justify-between">
+          <div className="reveal bg-surface rounded-3xl shadow-apple p-6 flex-1 flex flex-col justify-between border border-fog dark:border-white/10">
             <div>
               <PillTag>Email</PillTag>
               <SectionDivider />
 
-              <h2 className="font-serif text-xl text-ink mb-2">
+              <h2 className="font-serif text-xl text-ink dark:text-white mb-2">
                 Quick Email
               </h2>
 
@@ -83,7 +83,7 @@ export default function Contact() {
 
             <a
               href={`mailto:${EMAIL}`}
-              className="bg-black text-white block text-center text-[13px] font-medium px-5 py-2.5 rounded-full hover:bg-neutral-800 transition"
+              className="bg-ink text-surface dark:bg-white dark:text-black block text-center text-[13px] font-medium px-5 py-2.5 rounded-full hover:opacity-80 transition"
             >
               Send Email
             </a>
@@ -93,14 +93,14 @@ export default function Contact() {
             href="https://github.com/waynekiprotich"
             target="_blank"
             rel="noreferrer"
-            className="reveal bg-black text-white rounded-3xl shadow-apple p-7 flex-1 flex flex-col justify-between hover:scale-[1.02] transition"
+            className="reveal bg-surface border border-fog dark:border-white/10 rounded-3xl shadow-apple p-7 flex-1 flex flex-col justify-between hover:scale-[1.02] transition group"
           >
             <div>
-              <p className="text-[12px] text-white/70">See my work</p>
-              <p className="font-serif text-2xl mt-1">GitHub Projects</p>
+              <p className="text-[12px] text-stone">See my work</p>
+              <p className="font-serif text-2xl mt-1 text-ink dark:text-white">GitHub Projects</p>
             </div>
 
-            <svg className="w-6 h-6 text-white/80 mt-8" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-ink dark:text-white mt-8 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 .5C5.7.5.8 5.6.8 12c0 5.1 3.3 9.5 7.9 11.1.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.8 2.1 3.4 2.1.6-.5.9-1.1 1.1-1.7-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a10.8 10.8 0 015.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.7 1 .7 2.1v3.1c0 .3.2.7.8.6 4.6-1.6 7.9-6 7.9-11.1C23.2 5.6 18.3.5 12 .5z" />
             </svg>
           </a>
@@ -109,15 +109,15 @@ export default function Contact() {
 
         <div className="flex flex-col gap-4 h-full">
 
-          <div className="reveal bg-white rounded-3xl shadow-apple p-7 flex items-center gap-4 flex-1">
+          <div className="reveal bg-surface rounded-3xl shadow-apple p-7 flex items-center gap-4 flex-1 border border-fog dark:border-white/10">
             <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
             <div>
-              <p className="font-semibold text-ink text-[14px]">Available for work</p>
+              <p className="font-semibold text-ink dark:text-white text-[14px]">Available for work</p>
               <p className="text-stone text-[12px] mt-0.5">Open to full-time or contract roles</p>
             </div>
           </div>
 
-          <div className="reveal bg-white rounded-3xl shadow-apple p-7 flex-1">
+          <div className="reveal bg-surface rounded-3xl shadow-apple p-7 flex-1 border border-fog dark:border-white/10">
             <PillTag>Socials</PillTag>
 
             <div className="mt-5 space-y-3">
@@ -127,13 +127,13 @@ export default function Contact() {
                   href={href}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-fog transition group"
+                  className="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-fog dark:hover:bg-white/5 transition group"
                 >
-                  <span className="text-pebble group-hover:text-ink transition">
+                  <span className="text-pebble group-hover:text-ink dark:group-hover:text-white transition">
                     {icon}
                   </span>
 
-                  <span className="text-[14px] text-pebble group-hover:text-ink transition font-medium">
+                  <span className="text-[14px] text-pebble group-hover:text-ink dark:group-hover:text-white transition font-medium">
                     {label}
                   </span>
 
@@ -143,10 +143,10 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="reveal bg-white rounded-3xl shadow-apple p-7 flex-1">
+          <div className="reveal bg-surface rounded-3xl shadow-apple p-7 flex-1 border border-fog dark:border-white/10">
             <PillTag>Location</PillTag>
 
-            <p className="font-serif text-2xl text-ink mt-4">
+            <p className="font-serif text-2xl text-ink dark:text-white mt-4">
               Nairobi, Kenya
             </p>
           </div>

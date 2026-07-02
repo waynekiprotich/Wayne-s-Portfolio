@@ -3,10 +3,10 @@ import PillTag from './PillTag'
 export default function StackCard({ icon, title, description, tags = [], delay = 0 }) {
   return (
     <div
-      className="reveal stack-card bg-white rounded-3xl p-7 shadow-apple hover:shadow-apple-lg transition-shadow"
+      className="reveal stack-card bg-surface rounded-3xl p-7 shadow-apple hover:shadow-apple-lg transition-shadow"
       style={{ transitionDelay: `${delay}s` }}
     >
-      <div className="w-9 h-9 rounded-xl bg-ink/[0.06] flex items-center justify-center mb-5">
+      <div className="w-9 h-9 rounded-xl bg-ink/5 dark:bg-white/10 flex items-center justify-center mb-5">
         {icon}
       </div>
       <h3 className="font-semibold text-ink mb-2">{title}</h3>

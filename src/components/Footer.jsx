@@ -1,15 +1,15 @@
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-gray-200 py-4 mt-10 relative z-10">
+    <footer className="w-full border-t border-fog dark:border-white/10 py-4 mt-10 relative z-10">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-3">
 
         {/* Left */}
         <div className="text-center md:text-left">
-          <h2 className="text-sm font-medium text-black">
+          <h2 className="text-sm font-medium text-ink dark:text-white">
             Wayne Kiprotich
           </h2>
 
-          <p className="text-[11px] text-gray-500">
+          <p className="text-[11px] text-pebble">
             Software Engineer
           </p>
         </div>
@@ -22,7 +22,7 @@ export default function Footer() {
             href="https://github.com/waynekiprotich"
             target="_blank"
             rel="noreferrer"
-            className="text-gray-400 hover:text-black transition duration-300 hover:scale-110"
+            className="text-stone hover:text-ink dark:hover:text-white transition duration-300 hover:scale-110"
             aria-label="GitHub"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -35,7 +35,7 @@ export default function Footer() {
             href="https://linkedin.com/in/wayne-kiprotich-1a8ba6388"
             target="_blank"
             rel="noreferrer"
-            className="text-gray-400 hover:text-black transition duration-300 hover:scale-110"
+            className="text-stone hover:text-ink dark:hover:text-white transition duration-300 hover:scale-110"
             aria-label="LinkedIn"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -46,7 +46,7 @@ export default function Footer() {
           {/* Email */}
           <a
             href="mailto:waynekip123@icloud.com"
-            className="text-gray-400 hover:text-black transition duration-300 hover:scale-110"
+            className="text-stone hover:text-ink dark:hover:text-white transition duration-300 hover:scale-110"
             aria-label="Email"
           >
             <svg
@@ -66,7 +66,7 @@ export default function Footer() {
         </div>
 
         {/* Right */}
-        <p className="text-[10px] text-gray-400 text-center md:text-right">
+        <p className="text-[10px] text-stone text-center md:text-right">
           © {new Date().getFullYear()} Wayne Kiprotich
         </p>
       </div>
