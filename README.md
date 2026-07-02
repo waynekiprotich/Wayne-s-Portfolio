@@ -113,9 +113,14 @@ npm run preview
 
 ## Screenshots
 
-> Add screenshots of your homepage, projects section, and mobile view here.
+### Homepage
+
+<p align="center">
+  <img src="./public/livepage.png" alt="Wayne Kiprotich Portfolio Homepage" width="100%">
+</p>
 
 ---
+
 
 ## Goals
 
