@@ -181,6 +181,4 @@ This project is open source and available under the MIT License.
 
 **Designed & Built by Wayne Kiprotich**
 
-Made with care using React & Vite
-
 </div>
