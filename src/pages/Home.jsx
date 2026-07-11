@@ -23,6 +23,12 @@ const BackendIcon = () => (
   </svg>
 )
 
+const CloudIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-ink dark:text-white">
+    <path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.7-1.6A4.5 4.5 0 0 0 6.5 19h11Z" />
+  </svg>
+)
+
 const ToolsIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-ink dark:text-white">
     <circle cx="12" cy="12" r="3" />
@@ -60,12 +66,13 @@ export default function Home() {
         </div>
 
         <h1 className="fade-up delay-2 font-serif text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-tight mb-6 text-ink dark:text-white">
-          Hi! I'm Wayne Kiprotich.<br />
+          Hi! I'm Wayne Kiprotich.
+          <br />
           <span className="text-3xl sm:text-4xl md:text-5xl">
             Building modern web systems.
           </span>
         </h1>
-        
+
         <div className="fade-up delay-4 flex flex-wrap justify-center gap-3">
           <Link
             to="/estimator"
@@ -83,17 +90,47 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="max-w-5xl mx-auto px-6 py-16">
+      <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="reveal text-center mb-12">
           <PillTag>Capabilities</PillTag>
           <SectionDivider center />
-          <h2 className="font-serif text-3xl md:text-4xl text-ink dark:text-white">My Stack</h2>
+          <h2 className="font-serif text-3xl md:text-4xl text-ink dark:text-white">
+            My Stack
+          </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4">
-          <StackCard icon={<FrontendIcon />} title="Frontend" description="React · Tailwind CSS · JavaScript" tags={['React', 'Tailwind', 'JS']} delay={0} />
-          <StackCard icon={<BackendIcon />} title="Backend" description="Python · Flask · SQL" tags={['Python', 'Flask', 'SQL']} delay={0.08} />
-          <StackCard icon={<ToolsIcon />} title="Tools" description="Git · Docker · Ubuntu" tags={['Git', 'Docker', 'Ubuntu']} delay={0.16} />
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <StackCard
+            icon={<FrontendIcon />}
+            title="Frontend"
+            description="React · TypeScript · Next.js · Tailwind CSS · JavaScript"
+            tags={['React', 'TypeScript', 'Next.js', 'Tailwind', 'JavaScript']}
+            delay={0}
+          />
+
+          <StackCard
+            icon={<BackendIcon />}
+            title="Backend"
+            description="Python · Flask · Node.js · Express · PostgreSQL"
+            tags={['Python', 'Flask', 'Node.js', 'Express', 'PostgreSQL']}
+            delay={0.08}
+          />
+
+          <StackCard
+            icon={<CloudIcon />}
+            title="Cloud & DevOps"
+            description="Docker · GitHub Actions · Vercel · Render · Supabase"
+            tags={['Docker', 'GitHub CI/CD', 'Vercel', 'Render', 'Supabase']}
+            delay={0.16}
+          />
+
+          <StackCard
+            icon={<ToolsIcon />}
+            title="Tools"
+            description="Git · Linux · Figma · VS Code · Postman"
+            tags={['Git', 'Linux', 'Figma', 'VS Code', 'Postman']}
+            delay={0.24}
+          />
         </div>
       </section>
 
@@ -102,10 +139,15 @@ export default function Home() {
           <div>
             <PillTag>Portfolio</PillTag>
             <SectionDivider />
-            <h2 className="font-serif text-3xl md:text-4xl text-ink dark:text-white">Projects</h2>
+            <h2 className="font-serif text-3xl md:text-4xl text-ink dark:text-white">
+              Projects
+            </h2>
           </div>
 
-          <Link to="/projects" className="text-[13px] text-pebble hover:text-ink dark:hover:text-white transition underline underline-offset-4 hidden sm:block">
+          <Link
+            to="/projects"
+            className="text-[13px] text-pebble hover:text-ink dark:hover:text-white transition underline underline-offset-4 hidden sm:block"
+          >
             View all →
           </Link>
         </div>
@@ -121,7 +163,10 @@ export default function Home() {
         <div className="reveal bg-surface rounded-4xl px-8 py-16 sm:py-20 text-center shadow-apple relative overflow-hidden">
           <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-48 rounded-full opacity-10 pointer-events-none"
-            style={{ background: 'radial-gradient(ellipse, rgb(var(--c-ink)), transparent)', filter: 'blur(40px)' }}
+            style={{
+              background: 'radial-gradient(ellipse, rgb(var(--c-ink)), transparent)',
+              filter: 'blur(40px)'
+            }}
           />
 
           <PillTag className="mb-6">Start Your Project</PillTag>
@@ -144,7 +189,10 @@ export default function Home() {
       </section>
 
       {selectedProject && (
-        <ProjectPreviewModal project={selectedProject} onClose={closeModal} />
+        <ProjectPreviewModal
+          project={selectedProject}
+          onClose={closeModal}
+        />
       )}
     </>
   )
