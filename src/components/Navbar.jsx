@@ -26,7 +26,7 @@ export default function Navbar() {
   }, [])
 
   const linkClass = ({ isActive }) =>
-    `inline-flex items-center justify-center h-10 px-4 rounded-full text-sm transition ${
+    `inline-flex items-center justify-center h-11 px-5 rounded-full text-[15px] transition ${
       isActive
         ? 'bg-ink/10 text-ink dark:bg-white/10 dark:text-white font-medium'
         : 'text-pebble hover:bg-ink/5 hover:text-ink dark:hover:bg-white/5 dark:hover:text-white'
@@ -40,12 +40,12 @@ export default function Navbar() {
         id="nav-root"
         className="fixed top-4 left-0 w-full flex justify-center z-50 px-4"
       >
-        <div className="flex items-center gap-3 w-full max-w-5xl">
-          <nav className="nav-glass flex-1 flex justify-between items-center rounded-full px-4 py-3">
+        <div className="flex items-center gap-2 w-full max-w-5xl">
+          <nav className="nav-glass flex-1 h-14 flex items-center justify-between rounded-full px-3">
             {/* HOME */}
             <Link
               to="/"
-              className="inline-flex items-center justify-center h-10 px-5 rounded-full bg-ink text-surface dark:bg-white dark:text-black text-sm font-semibold tracking-tight hover:opacity-80 transition"
+              className="inline-flex items-center justify-center h-11 px-7 rounded-full bg-ink text-surface dark:bg-white dark:text-black text-[15px] font-semibold transition hover:opacity-90"
             >
               HOME
             </Link>
@@ -64,12 +64,12 @@ export default function Navbar() {
               <a
                 href="/Wayne's CV.pdf"
                 download="Wayne_Kiprotich_CV.pdf"
-                className="hidden md:inline-flex items-center justify-center h-10 px-5 rounded-full bg-ink text-surface dark:bg-white dark:text-black text-sm font-medium hover:opacity-80 transition"
+                className="hidden md:inline-flex items-center justify-center h-11 px-7 rounded-full bg-ink text-surface dark:bg-white dark:text-black text-[15px] font-semibold transition hover:opacity-90"
               >
                 Download CV
               </a>
 
-              {/* Mobile Menu */}
+              {/* Mobile Menu Button */}
               <button
                 className="md:hidden flex flex-col gap-[5px] p-1"
                 aria-label="Menu"
@@ -83,10 +83,10 @@ export default function Navbar() {
 
           {/* Theme Toggle */}
           <div className="hidden md:flex">
-            <div className="nav-glass rounded-full p-2 flex items-center justify-center">
+            <div className="nav-glass h-14 rounded-full px-2 flex items-center justify-center">
               <button
                 onClick={toggle}
-                className="p-2 rounded-full text-pebble hover:bg-ink/5 dark:hover:bg-white/5 hover:text-ink dark:hover:text-white transition"
+                className="h-10 w-10 rounded-full flex items-center justify-center text-pebble hover:bg-ink/5 dark:hover:bg-white/5 hover:text-ink dark:hover:text-white transition"
                 aria-label="Toggle theme"
               >
                 {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
@@ -95,7 +95,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Dropdown */}
         {menuOpen && (
           <div className="absolute top-20 left-4 right-4 nav-glass rounded-2xl p-4 flex flex-col gap-1 md:hidden">
             {navLinks.map(({ to, label }) => (
@@ -103,7 +103,7 @@ export default function Navbar() {
                 key={to}
                 to={to}
                 className={({ isActive }) =>
-                  `block px-4 py-3 text-sm rounded-xl transition ${
+                  `block px-4 py-3 text-[15px] rounded-xl transition ${
                     isActive
                       ? 'bg-ink/10 text-ink dark:bg-white/10 dark:text-white font-medium'
                       : 'text-pebble hover:text-ink hover:bg-ink/5 dark:hover:text-white dark:hover:bg-white/5'
@@ -118,7 +118,7 @@ export default function Navbar() {
             <div className="flex justify-center py-3 border-t border-fog dark:border-white/10 mt-2">
               <button
                 onClick={toggle}
-                className="flex items-center gap-2 text-sm text-pebble dark:text-white/80"
+                className="flex items-center gap-2 text-[15px] text-pebble dark:text-white/80"
               >
                 {theme === 'dark' ? (
                   <>
@@ -140,7 +140,7 @@ export default function Navbar() {
                 download="Wayne_Kiprotich_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-center h-10 leading-10 rounded-full bg-ink text-surface dark:bg-white dark:text-black text-sm font-medium hover:opacity-80 transition"
+                className="block text-center h-11 leading-[44px] rounded-full bg-ink text-surface dark:bg-white dark:text-black text-[15px] font-semibold hover:opacity-90 transition"
                 onClick={() => setMenuOpen(false)}
               >
                 Download CV
