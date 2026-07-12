@@ -100,7 +100,7 @@ export default function ProjectCard({
             onClick={(e) => e.stopPropagation()}
             className="bg-ink/5 text-ink dark:bg-white/10 dark:text-white hover:bg-ink/10 dark:hover:bg-white/20 transition flex-1 text-center text-[11px] font-medium py-2.5 rounded-full"
           >
-            Live Demo
+            Live
           </a>
         </div>
       </div>
