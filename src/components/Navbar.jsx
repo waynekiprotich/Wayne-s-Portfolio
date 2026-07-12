@@ -25,8 +25,9 @@ export default function Navbar() {
     return () => document.removeEventListener('click', handler)
   }, [])
 
+  // Changed h-11 to h-10 and px-5 to px-4 for proportional balance
   const linkClass = ({ isActive }) =>
-    `inline-flex items-center justify-center h-11 px-5 rounded-full text-[15px] transition ${
+    `inline-flex items-center justify-center h-10 px-4 rounded-full text-[15px] transition ${
       isActive
         ? 'bg-ink/10 text-ink dark:bg-white/10 dark:text-white font-medium'
         : 'text-pebble hover:bg-ink/5 hover:text-ink dark:hover:bg-white/5 dark:hover:text-white'
@@ -41,11 +42,12 @@ export default function Navbar() {
         className="fixed top-4 left-0 w-full flex justify-center z-50 px-4"
       >
         <div className="flex items-center gap-2 w-full max-w-5xl">
-          <nav className="nav-glass flex-1 h-14 flex items-center justify-between rounded-full px-3">
-            {/* HOME */}
+          {/* Changed px-3 to p-2 for a uniform 8px concentric gap around inner buttons */}
+          <nav className="nav-glass flex-1 h-14 flex items-center justify-between rounded-full p-2">
+            {/* HOME: Changed h-11 px-7 to h-10 px-6 */}
             <Link
               to="/"
-              className="inline-flex items-center justify-center h-11 px-7 rounded-full bg-ink text-surface dark:bg-white dark:text-black text-[15px] font-semibold transition hover:opacity-90"
+              className="inline-flex items-center justify-center h-10 px-6 rounded-full bg-ink text-surface dark:bg-white dark:text-black text-[15px] font-semibold transition hover:opacity-90"
             >
               HOME
             </Link>
@@ -59,19 +61,19 @@ export default function Navbar() {
               ))}
             </div>
 
-            <div className="flex items-center gap-3">
-              {/* Download CV */}
+            <div className="flex items-center gap-2">
+              {/* Download CV: Changed h-11 px-7 to h-10 px-6 */}
               <a
                 href="/Wayne's CV.pdf"
                 download="Wayne_Kiprotich_CV.pdf"
-                className="hidden md:inline-flex items-center justify-center h-11 px-7 rounded-full bg-ink text-surface dark:bg-white dark:text-black text-[15px] font-semibold transition hover:opacity-90"
+                className="hidden md:inline-flex items-center justify-center h-10 px-6 rounded-full bg-ink text-surface dark:bg-white dark:text-black text-[15px] font-semibold transition hover:opacity-90"
               >
                 Download CV
               </a>
 
               {/* Mobile Menu Button */}
               <button
-                className="md:hidden flex flex-col gap-[5px] p-1"
+                className="md:hidden flex flex-col justify-center items-center h-10 w-10 gap-[5px] rounded-full hover:bg-ink/5 dark:hover:bg-white/5 transition"
                 aria-label="Menu"
                 onClick={() => setMenuOpen((v) => !v)}
               >
@@ -81,9 +83,9 @@ export default function Navbar() {
             </div>
           </nav>
 
-          {/* Theme Toggle */}
+          {/* Theme Toggle: Kept consistent with the new 8px (p-2) mathematical ratio */}
           <div className="hidden md:flex">
-            <div className="nav-glass h-14 rounded-full px-2 flex items-center justify-center">
+            <div className="nav-glass h-14 w-14 rounded-full p-2 flex items-center justify-center">
               <button
                 onClick={toggle}
                 className="h-10 w-10 rounded-full flex items-center justify-center text-pebble hover:bg-ink/5 dark:hover:bg-white/5 hover:text-ink dark:hover:text-white transition"
