@@ -150,7 +150,6 @@ export default function Projects() {
         if (dateB !== dateA) return dateB - dateA
         return (b.id ?? 0) - (a.id ?? 0)
       }
-      // featured (default)
       const featuredDiff = (b.featured ? 1 : 0) - (a.featured ? 1 : 0)
       if (featuredDiff !== 0) return featuredDiff
       return (b.id ?? 0) - (a.id ?? 0)
@@ -168,7 +167,6 @@ export default function Projects() {
 
   return (
     <section className="max-w-6xl mx-auto px-6 pt-24 pb-28">
-      {/* Hero */}
       <div className="relative text-center mb-16 fade-up delay-1">
         <div
           className="pointer-events-none absolute -top-16 left-1/2 -translate-x-1/2 w-[560px] h-[280px] rounded-full bg-gradient-to-b from-fog/70 to-transparent blur-3xl -z-10"
@@ -180,13 +178,10 @@ export default function Projects() {
         </h1>
         <p className="text-pebble text-[15px] sm:text-base mt-5 max-w-xl mx-auto leading-relaxed">
           A collection of products, tools, and client engagements built end-to-end &mdash;
-          from first wireframe to production deploy. Each project below reflects a real
-          problem solved for a real client, with a focus on clean code, thoughtful UX,
-          and results that hold up outside a demo.
+          from first wireframe to production deploy.
         </p>
       </div>
 
-      {/* Controls */}
       <div className="flex flex-col gap-5 mb-10 fade-up delay-2">
         <div className="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
           <label className="relative flex-1 sm:max-w-sm">
@@ -281,7 +276,6 @@ export default function Projects() {
         )}
       </div>
 
-      {/* Grid */}
       {error ? (
         <div className="text-center py-20 text-red-500 text-[13px]">{error}</div>
       ) : (

@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import PillTag from './PillTag'
 import useScrollLock from "../../hooks/useScrollLock";
 
@@ -59,7 +60,7 @@ export default function ProjectPreviewModal({ project, onClose }) {
     return () => cancelAnimationFrame(raf)
   }, [])
 
-useScrollLock(!!project)
+  useScrollLock(!!project)
 
   useEffect(() => {
     closeButtonRef.current?.focus()
@@ -70,7 +71,6 @@ useScrollLock(!!project)
 
     window.addEventListener('keydown', handleEsc)
     return () => window.removeEventListener('keydown', handleEsc)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (!project) return null
@@ -120,7 +120,8 @@ useScrollLock(!!project)
     if (e.target === backdropRef.current) handleClose()
   }
 
-  return (
+  // Safely portal the modal to the body
+  return createPortal(
     <div
       ref={backdropRef}
       className={`fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-ink/40 dark:bg-black/65 backdrop-blur-md overscroll-none transition-opacity duration-200 ${
@@ -278,6 +279,7 @@ useScrollLock(!!project)
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }

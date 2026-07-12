@@ -8,7 +8,7 @@ export const fetchProjects = async () => {
   
   return data.map(project => ({
     ...project,
-    image: project.preview_image || project.image,
+    previewImage: project.previewImage || project.preview_image || project.image_url || project.imageUrl || project.image || project.cover_image || project.thumbnail || '',
     tags: typeof project.tags === 'string' 
       ? project.tags.split(',').map(t => t.trim()) 
       : (project.tags || []),

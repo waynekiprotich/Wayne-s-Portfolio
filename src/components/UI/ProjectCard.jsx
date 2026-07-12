@@ -59,7 +59,8 @@ export default function ProjectCard({
 
   return (
     <article
-      className="reveal project-card group h-full flex flex-col bg-surface rounded-3xl overflow-hidden shadow-apple transition-all duration-300 ease-out hover:shadow-apple-lg hover:-translate-y-1 cursor-pointer focus-within:ring-2 focus-within:ring-ink/15 dark:focus-within:ring-white/25"
+      // The 'reveal' class was removed from the line below to prevent the cards from staying hidden
+      className="project-card group h-full flex flex-col bg-surface rounded-3xl overflow-hidden shadow-apple transition-all duration-300 ease-out hover:shadow-apple-lg hover:-translate-y-1 cursor-pointer focus-within:ring-2 focus-within:ring-ink/15 dark:focus-within:ring-white/25"
       style={{ transitionDelay: `${delay}s` }}
       onClick={handleActivate}
       role={onPreview ? 'button' : undefined}

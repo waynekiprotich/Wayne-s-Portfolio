@@ -1,16 +1,27 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react'
 
 export default function useScrollLock(active) {
-  const originalStyle = useRef(null);
+  const scrollY = useRef(0)
 
   useEffect(() => {
-    if (!active) return;
+    if (!active) return
 
-    originalStyle.current = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+    scrollY.current = window.scrollY
+    const { style } = document.body
+
+    document.documentElement.style.overflow = 'hidden'
+    style.position = 'fixed'
+    style.top = `-${scrollY.current}px`
+    style.left = '0'
+    style.right = '0'
 
     return () => {
-      document.body.style.overflow = originalStyle.current;
-    };
-  }, [active]); 
+      document.documentElement.style.overflow = ''
+      style.position = ''
+      style.top = ''
+      style.left = ''
+      style.right = ''
+      window.scrollTo(0, scrollY.current)
+    }
+  }, [active])
 }

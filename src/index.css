@@ -95,7 +95,12 @@ body::before {
 }
 
 .page-enter {
-  animation: pageFadeIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: pageFadeIn 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; } /* using 'none' instead of translateY(0) is even safer */
 }
 
 .project-card {
