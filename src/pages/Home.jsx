@@ -216,13 +216,13 @@ export default function Home() {
         <h1 className="fade-up delay-2 font-serif text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-tight mb-6 text-ink dark:text-white">
           I build modern, scalable
           <br />
-          software for businesses.
+          software 
         </h1>
 
         <p className="fade-up delay-3 text-pebble text-[15px] sm:text-base max-w-xl mx-auto leading-relaxed mb-10">
           I'm Wayne Kiprotich, a full-stack developer designing and shipping production-ready web
           platforms, from customer-facing products to internal business systems, for teams that
-          need software built to last and built to scale.
+          need software built for real-world use.
         </p>
 
         <div className="fade-up delay-4 flex flex-wrap justify-center gap-3">
