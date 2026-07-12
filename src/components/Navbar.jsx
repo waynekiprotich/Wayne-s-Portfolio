@@ -20,12 +20,13 @@ export default function Navbar() {
     const handler = (e) => {
       if (!e.target.closest('#nav-root')) setMenuOpen(false)
     }
+
     document.addEventListener('click', handler)
     return () => document.removeEventListener('click', handler)
   }, [])
 
   const linkClass = ({ isActive }) =>
-    `px-4 py-2 rounded-full text-sm transition ${
+    `inline-flex items-center justify-center h-10 px-4 rounded-full text-sm transition ${
       isActive
         ? 'bg-ink/10 text-ink dark:bg-white/10 dark:text-white font-medium'
         : 'text-pebble hover:bg-ink/5 hover:text-ink dark:hover:bg-white/5 dark:hover:text-white'
@@ -33,22 +34,24 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="h-[72px] w-full" />
-      
-      <div id="nav-root" className="fixed top-4 left-0 w-full flex justify-center z-50 px-4">
-        {/* Main Wrapper for Desktop Layout */}
+      <div className="h-[72px]" />
+
+      <div
+        id="nav-root"
+        className="fixed top-4 left-0 w-full flex justify-center z-50 px-4"
+      >
         <div className="flex items-center gap-3 w-full max-w-5xl">
-          
-          {/* Main Navigation Pill */}
-          <nav className="nav-glass flex-1 flex justify-between items-center rounded-full px-5 py-3">
-            <Link 
-              to="/" 
-              className="bg-ink text-surface dark:bg-white dark:text-black font-semibold text-[15px] tracking-tight px-5 py-2 rounded-full hover:opacity-80 transition"
+          <nav className="nav-glass flex-1 flex justify-between items-center rounded-full px-4 py-3">
+            {/* HOME */}
+            <Link
+              to="/"
+              className="inline-flex items-center justify-center h-10 px-5 rounded-full bg-ink text-surface dark:bg-white dark:text-black text-sm font-semibold tracking-tight hover:opacity-80 transition"
             >
               HOME
             </Link>
 
-            <div className="hidden md:flex gap-1">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-1">
               {navLinks.map(({ to, label }) => (
                 <NavLink key={to} to={to} className={linkClass}>
                   {label}
@@ -57,26 +60,28 @@ export default function Navbar() {
             </div>
 
             <div className="flex items-center gap-3">
+              {/* Download CV */}
               <a
                 href="/Wayne's CV.pdf"
                 download="Wayne_Kiprotich_CV.pdf"
-                className="bg-ink text-surface dark:bg-white dark:text-black text-[13px] font-medium px-5 py-2 rounded-full hidden md:inline-block hover:opacity-80 transition"
+                className="hidden md:inline-flex items-center justify-center h-10 px-5 rounded-full bg-ink text-surface dark:bg-white dark:text-black text-sm font-medium hover:opacity-80 transition"
               >
                 Download CV
               </a>
 
+              {/* Mobile Menu */}
               <button
                 className="md:hidden flex flex-col gap-[5px] p-1"
                 aria-label="Menu"
                 onClick={() => setMenuOpen((v) => !v)}
               >
-                <span className="w-5 h-[1.5px] bg-ink dark:bg-white rounded-full block transition-colors" />
-                <span className="w-5 h-[1.5px] bg-ink dark:bg-white rounded-full block transition-colors" />
+                <span className="w-5 h-[1.5px] bg-ink dark:bg-white rounded-full" />
+                <span className="w-5 h-[1.5px] bg-ink dark:bg-white rounded-full" />
               </button>
             </div>
           </nav>
 
-          {/* Theme Toggle Pill */}
+          {/* Theme Toggle */}
           <div className="hidden md:flex">
             <div className="nav-glass rounded-full p-2 flex items-center justify-center">
               <button
@@ -115,7 +120,17 @@ export default function Navbar() {
                 onClick={toggle}
                 className="flex items-center gap-2 text-sm text-pebble dark:text-white/80"
               >
-                {theme === 'dark' ? <><Sun size={16} /> Light Mode</> : <><Moon size={16} /> Dark Mode</>}
+                {theme === 'dark' ? (
+                  <>
+                    <Sun size={16} />
+                    Light Mode
+                  </>
+                ) : (
+                  <>
+                    <Moon size={16} />
+                    Dark Mode
+                  </>
+                )}
               </button>
             </div>
 
@@ -125,7 +140,7 @@ export default function Navbar() {
                 download="Wayne_Kiprotich_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-ink text-surface dark:bg-white dark:text-black block text-center text-sm font-medium px-5 py-2.5 rounded-full hover:opacity-80 transition"
+                className="block text-center h-10 leading-10 rounded-full bg-ink text-surface dark:bg-white dark:text-black text-sm font-medium hover:opacity-80 transition"
                 onClick={() => setMenuOpen(false)}
               >
                 Download CV
