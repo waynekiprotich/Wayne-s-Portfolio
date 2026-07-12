@@ -108,23 +108,28 @@ export default function Estimator() {
   }
 
   return (
-    <section className="max-w-3xl mx-auto px-6 pt-20 pb-24">
-      <div className="text-center mb-10">
+    <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-16 sm:pb-24">
+      <div className="text-center mb-8 sm:mb-10">
         <PillTag>Project Estimator</PillTag>
-        <h1 className="font-serif text-4xl text-ink dark:text-white mt-6">Get a Detailed Project Estimate</h1>
-        <p className="text-pebble mt-3">
+        <h1 className="font-serif text-2xl sm:text-4xl text-ink dark:text-white mt-4 sm:mt-6 leading-tight">
+          Get a Detailed Project Estimate
+        </h1>
+        <p className="text-pebble text-sm sm:text-base mt-3 max-w-sm sm:max-w-none mx-auto">
           A short discovery process that helps us understand your project and give you a realistic estimate.
         </p>
       </div>
 
-      <ProgressHeader steps={WIZARD_STEPS} currentStep={step} onStepClick={goToStep} />
+      {/* Scrolls horizontally on narrow screens instead of wrapping/overflowing */}
+      <div className="-mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto no-scrollbar mb-4 sm:mb-0">
+        <ProgressHeader steps={WIZARD_STEPS} currentStep={step} onStepClick={goToStep} />
+      </div>
 
-      <div className="bg-surface p-8 rounded-3xl shadow-apple-lg border border-fog dark:border-white/5 min-h-[320px] flex flex-col">
+      <div className="bg-surface p-5 sm:p-8 rounded-2xl sm:rounded-3xl shadow-apple-lg border border-fog dark:border-white/5 min-h-[280px] sm:min-h-[320px] flex flex-col">
         <div className="flex-1 text-ink dark:text-white">
           {step === 1 && (
             <div>
-              <h2 className="text-xl font-semibold mb-4">What kind of project is this?</h2>
-              <div className="grid sm:grid-cols-2 gap-3">
+              <h2 className="text-lg sm:text-xl font-semibold mb-4">What kind of project is this?</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {PROJECT_TYPES.map((type) => (
                   <OptionCard
                     key={type.id}
@@ -143,8 +148,8 @@ export default function Estimator() {
 
           {step === 2 && (
             <div>
-              <h2 className="text-xl font-semibold mb-5">Tell us about your business</h2>
-              <div className="grid sm:grid-cols-2 gap-4">
+              <h2 className="text-lg sm:text-xl font-semibold mb-5">Tell us about your business</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <FormField
                   label="Company name"
                   value={data.business.companyName}
@@ -187,8 +192,8 @@ export default function Estimator() {
           {step === 3 && (
             <div className="space-y-6">
               <div>
-                <h2 className="text-xl font-semibold mb-4">What are we building?</h2>
-                <div className="grid sm:grid-cols-3 gap-3">
+                <h2 className="text-lg sm:text-xl font-semibold mb-4">What are we building?</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {PROJECT_NATURE.map((item) => (
                     <OptionCard
                       key={item.id}
@@ -222,8 +227,8 @@ export default function Estimator() {
 
           {step === 4 && (
             <div className="space-y-6">
-              <h2 className="text-xl font-semibold">Pages and scope</h2>
-              <div className="grid sm:grid-cols-2 gap-4">
+              <h2 className="text-lg sm:text-xl font-semibold">Pages and scope</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <FormField
                   label="Number of pages"
                   type="number"
@@ -245,7 +250,7 @@ export default function Estimator() {
                 <span className="block text-sm font-medium text-ink dark:text-white mb-1.5">
                   Do you need an Admin Dashboard?
                 </span>
-                <div className="grid sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-3">
                   <OptionCard
                     label="Yes"
                     selected={data.scope.adminArea === true}
@@ -265,7 +270,7 @@ export default function Estimator() {
 
           {step === 5 && (
             <div>
-              <h2 className="text-xl font-semibold mb-1">Which features do you need?</h2>
+              <h2 className="text-lg sm:text-xl font-semibold mb-1">Which features do you need?</h2>
               <p className="text-pebble text-sm mb-4">Select all that apply. Skip anything you are not sure about yet.</p>
               <FeatureChecklist
                 groups={FEATURE_GROUPS}
@@ -277,9 +282,9 @@ export default function Estimator() {
 
           {step === 6 && (
             <div>
-              <h2 className="text-xl font-semibold mb-1">Any integrations you need?</h2>
+              <h2 className="text-lg sm:text-xl font-semibold mb-1">Any integrations you need?</h2>
               <p className="text-pebble text-sm mb-4">Select any external tools or platforms this should connect with.</p>
-              <div className="grid sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {INTEGRATIONS.map((integration) => (
                   <CheckboxCard
                     key={integration.id}
@@ -295,8 +300,8 @@ export default function Estimator() {
           {step === 7 && (
             <div className="space-y-6">
               <div>
-                <h2 className="text-xl font-semibold mb-4">Design direction</h2>
-                <div className="grid sm:grid-cols-2 gap-3">
+                <h2 className="text-lg sm:text-xl font-semibold mb-4">Design direction</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {DESIGN_STYLES.map((style) => (
                     <OptionCard
                       key={style}
@@ -308,7 +313,7 @@ export default function Estimator() {
                   ))}
                 </div>
               </div>
-              <div className="grid sm:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <CheckboxCard
                   label="I have existing branding"
                   checked={data.design.hasExistingBranding}
@@ -348,9 +353,9 @@ export default function Estimator() {
 
           {step === 8 && (
             <div>
-              <h2 className="text-xl font-semibold mb-1">Technical requirements</h2>
+              <h2 className="text-lg sm:text-xl font-semibold mb-1">Technical requirements</h2>
               <p className="text-pebble text-sm mb-4">Select everything you expect to need at launch.</p>
-              <div className="grid sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {TECHNICAL_REQUIREMENTS.map((req) => (
                   <CheckboxCard
                     key={req.id}
@@ -366,8 +371,8 @@ export default function Estimator() {
           {step === 9 && (
             <div className="space-y-8">
               <div>
-                <h2 className="text-xl font-semibold mb-4">What is your timeline?</h2>
-                <div className="grid sm:grid-cols-2 gap-3">
+                <h2 className="text-lg sm:text-xl font-semibold mb-4">What is your timeline?</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {TIMELINES.map((item) => (
                     <OptionCard
                       key={item.id}
@@ -380,8 +385,8 @@ export default function Estimator() {
                 </div>
               </div>
               <div>
-                <h2 className="text-xl font-semibold mb-4">What is your budget range?</h2>
-                <div className="grid sm:grid-cols-2 gap-3">
+                <h2 className="text-lg sm:text-xl font-semibold mb-4">What is your budget range?</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {BUDGETS.map((item) => (
                     <OptionCard
                       key={item}
@@ -398,7 +403,7 @@ export default function Estimator() {
 
           {step === 10 && (
             <div className="space-y-6">
-              <h2 className="text-xl font-semibold">Tell us more about the project</h2>
+              <h2 className="text-lg sm:text-xl font-semibold">Tell us more about the project</h2>
               <FormField
                 label="Project description"
                 type="textarea"
@@ -418,8 +423,8 @@ export default function Estimator() {
 
           {step === 11 && (
             <div>
-              <h2 className="text-xl font-semibold mb-5">How can we reach you?</h2>
-              <div className="grid sm:grid-cols-2 gap-4">
+              <h2 className="text-lg sm:text-xl font-semibold mb-5">How can we reach you?</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <FormField
                   label="Full name"
                   value={data.contact.fullName}
@@ -457,13 +462,13 @@ export default function Estimator() {
 
           {step === 12 && !submitted && (
             <div>
-              <h2 className="text-xl font-semibold mb-5">Your Estimate</h2>
+              <h2 className="text-lg sm:text-xl font-semibold mb-5">Your Estimate</h2>
               <EstimateSummary data={data} estimate={estimate} />
               {error && <p className="text-red-500 text-sm mt-4">{error}</p>}
               <button
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className="w-full mt-6 bg-ink text-surface dark:bg-white dark:text-black px-8 py-3 rounded-full font-medium hover:opacity-80 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full mt-6 bg-ink text-surface dark:bg-white dark:text-black px-8 py-3.5 sm:py-3 rounded-full font-medium hover:opacity-80 transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Sending Request...' : 'Send Request'}
               </button>
@@ -472,8 +477,8 @@ export default function Estimator() {
 
           {step === 12 && submitted && (
             <div className="text-center py-8">
-              <h2 className="text-2xl font-semibold mb-3">Request Sent</h2>
-              <p className="text-pebble dark:text-white/80">
+              <h2 className="text-xl sm:text-2xl font-semibold mb-3">Request Sent</h2>
+              <p className="text-pebble dark:text-white/80 text-sm sm:text-base">
                 Thanks {data.contact.fullName.split(' ')[0]}. We will reach out at {data.contact.email} within 24 hours
                 to schedule a discovery call.
               </p>
@@ -482,15 +487,18 @@ export default function Estimator() {
         </div>
 
         {step > 1 && step < 12 && (
-          <div className="flex justify-between mt-8 pt-6 border-t border-fog dark:border-white/5">
-            <button onClick={goBack} className="text-stone dark:text-pebble underline text-sm">
+          <div className="flex flex-col-reverse sm:flex-row sm:justify-between gap-3 mt-8 pt-6 border-t border-fog dark:border-white/5">
+            <button
+              onClick={goBack}
+              className="text-stone dark:text-pebble underline text-sm text-center sm:text-left py-1"
+            >
               Back
             </button>
             <div className="flex items-center gap-3">
               {SKIPPABLE_STEPS.includes(step) && (
                 <button
                   onClick={goNext}
-                  className="border border-fog dark:border-white/20 text-stone dark:text-pebble px-5 py-2 rounded-full text-sm hover:border-ink dark:hover:border-white transition"
+                  className="flex-1 sm:flex-none border border-fog dark:border-white/20 text-stone dark:text-pebble px-5 py-2.5 sm:py-2 rounded-full text-sm hover:border-ink dark:hover:border-white transition"
                 >
                   Skip
                 </button>
@@ -498,7 +506,7 @@ export default function Estimator() {
               <button
                 onClick={goNext}
                 disabled={!canProceed()}
-                className="bg-ink text-surface dark:bg-white dark:text-black px-6 py-2 rounded-full disabled:opacity-30 disabled:cursor-not-allowed transition"
+                className="flex-1 sm:flex-none bg-ink text-surface dark:bg-white dark:text-black px-6 py-2.5 sm:py-2 rounded-full disabled:opacity-30 disabled:cursor-not-allowed transition"
               >
                 Next
               </button>
@@ -507,7 +515,7 @@ export default function Estimator() {
         )}
         {step === 12 && !submitted && (
           <div className="flex justify-start mt-4">
-            <button onClick={goBack} className="text-stone dark:text-pebble underline text-sm">
+            <button onClick={goBack} className="text-stone dark:text-pebble underline text-sm py-1">
               Back
             </button>
           </div>

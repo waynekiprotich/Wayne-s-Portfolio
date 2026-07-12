@@ -3,17 +3,45 @@ import PillTag from '../components/UI/PillTag'
 import SectionDivider from '../components/UI/SectionDivider'
 
 const skills = [
-  { 
-    category: 'Frontend', 
-    items: ['React', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML/CSS'] 
+  {
+    category: 'Frontend',
+    items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
   },
-  { 
-    category: 'Backend', 
-    items: ['Python', 'Flask', 'C', 'REST APIs', 'SQL'] 
+  {
+    category: 'Backend',
+    items: ['Python', 'Flask', 'FastAPI', 'REST APIs', 'PostgreSQL'],
   },
-  { 
-    category: 'Tools & Cloud', 
-    items: ['AWS', 'Git', 'Docker', 'Ubuntu', 'VS Code'] 
+  {
+    category: 'Tools & Infra',
+    items: ['Supabase', 'Git', 'Docker', 'AWS', 'Vite'],
+  },
+]
+
+const stats = [
+  { value: '3+', label: 'Shipped Projects' },
+  { value: 'Nairobi', label: 'Based In' },
+  { value: 'Full-Stack', label: 'Focus' },
+  { value: 'Open', label: 'For Work' },
+]
+
+const timeline = [
+  {
+    period: 'Now',
+    title: 'Freelance Full-Stack Engineer',
+    description:
+      'Building production web apps for clients and my own products — from schools and IT retailers to internal tools — while taking on new freelance work.',
+  },
+  {
+    period: 'Recent',
+    title: 'PersonalOS',
+    description:
+      'A 15-route productivity suite built on Next.js 15 and Supabase, with an AI coach, live analytics, and a full gamification system.',
+  },
+  {
+    period: 'Recent',
+    title: 'Stack Battle KE',
+    description:
+      'A competitive coding platform for Kenyan university students — Flask + PostgreSQL backend, React frontend, JWT auth, and a live code-execution engine, built end to end as a final-year project.',
   },
 ]
 
@@ -29,7 +57,8 @@ export default function About() {
         </h1>
       </div>
 
-      <div className="reveal bg-surface rounded-4xl shadow-apple p-8 sm:p-12 grid md:grid-cols-2 gap-12 items-center mb-10">
+      {/* Profile + intro */}
+      <div className="reveal bg-surface rounded-4xl shadow-apple p-8 sm:p-12 grid md:grid-cols-2 gap-12 items-center mb-6">
         <div className="flex justify-center md:justify-start">
           <div className="profile-ring">
             <div className="w-52 sm:w-60 aspect-[4/5] rounded-[calc(1.5rem-3px)] overflow-hidden">
@@ -51,29 +80,65 @@ export default function About() {
           </h2>
 
           <p className="text-pebble text-[15px] mb-6 leading-relaxed">
-            I am a Full-Stack Engineer focused on building fast, scalable, and modern web applications.
-            I work across frontend and backend systems to deliver clean and reliable products.
+            I'm a full-stack engineer based in Nairobi, working independently with clients and
+            on my own products. I move fluidly between frontend and backend — designing the
+            data model one hour, polishing a transition the next.
           </p>
 
           <p className="text-pebble text-[15px] leading-relaxed">
-            I enjoy creating smooth user experiences, designing robust APIs, and building systems that are
-            simple, maintainable, and production-ready.
+            I care about systems that are simple to reason about and safe to change — clean
+            APIs, sensible schemas, and interfaces that feel considered rather than assembled.
           </p>
-
-          <div className="grid grid-cols-2 gap-6 pt-6 mt-6 border-t border-fog dark:border-white/10">
-            <div>
-              <p className="text-[22px] font-semibold text-ink tracking-tight">Nairobi</p>
-              <p className="text-xs text-stone mt-1 uppercase tracking-widest">Location</p>
-            </div>
-            <div>
-              <p className="text-[22px] font-semibold text-ink tracking-tight">Full-Stack</p>
-              <p className="text-xs text-stone mt-1 uppercase tracking-widest">Focus</p>
-            </div>
-          </div>
         </div>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-4">
+      {/* Stats strip */}
+      <div className="reveal bg-surface rounded-3xl shadow-apple p-6 sm:p-8 grid grid-cols-2 sm:grid-cols-4 gap-6 mb-10">
+        {stats.map(({ value, label }) => (
+          <div key={label} className="text-center sm:text-left">
+            <p className="text-xl sm:text-[22px] font-semibold text-ink tracking-tight">
+              {value}
+            </p>
+            <p className="text-xs text-stone mt-1 uppercase tracking-widest">{label}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Currently building / timeline */}
+      <div className="mb-6 fade-up">
+        <PillTag>Currently</PillTag>
+        <h3 className="font-serif text-2xl md:text-3xl text-ink mt-4 mb-8">
+          What I've been building
+        </h3>
+      </div>
+
+      <div className="space-y-4 mb-16">
+        {timeline.map(({ period, title, description }, i) => (
+          <div
+            key={title}
+            className="reveal bg-surface rounded-3xl shadow-apple p-7 sm:p-8 grid sm:grid-cols-[100px_1fr] gap-4 sm:gap-8"
+            style={{ transitionDelay: `${i * 0.08}s` }}
+          >
+            <p className="text-xs font-semibold text-stone uppercase tracking-widest pt-1">
+              {period}
+            </p>
+            <div>
+              <h4 className="font-semibold text-ink text-[17px] mb-2">{title}</h4>
+              <p className="text-pebble text-[14px] leading-relaxed">{description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Skills */}
+      <div className="mb-6 fade-up">
+        <PillTag>Toolkit</PillTag>
+        <h3 className="font-serif text-2xl md:text-3xl text-ink mt-4 mb-8">
+          Technologies I work with
+        </h3>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-4 mb-16">
         {skills.map(({ category, items }, i) => (
           <div
             key={category}
@@ -91,6 +156,23 @@ export default function About() {
             </ul>
           </div>
         ))}
+      </div>
+
+      {/* CTA */}
+      <div className="reveal bg-surface rounded-4xl shadow-apple p-10 sm:p-14 text-center">
+        <h3 className="font-serif text-2xl md:text-3xl text-ink mb-3">
+          Have a project in mind?
+        </h3>
+        <p className="text-pebble text-[15px] mb-7 max-w-md mx-auto leading-relaxed">
+          I'm currently taking on new freelance work — happy to talk through what you're
+          building and whether I'm a good fit.
+        </p>
+        <a
+          href="/contact"
+          className="inline-flex items-center justify-center rounded-full bg-ink text-surface px-7 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
+        >
+          Get in touch
+        </a>
       </div>
     </section>
   )
