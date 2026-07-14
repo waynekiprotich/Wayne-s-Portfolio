@@ -17,12 +17,20 @@ export default function Navbar() {
   const { theme, toggle } = useTheme()
 
   useEffect(() => {
-    const handler = (e) => {
+    const clickHandler = (e) => {
       if (!e.target.closest('#nav-root')) setMenuOpen(false)
     }
 
-    document.addEventListener('click', handler)
-    return () => document.removeEventListener('click', handler)
+    const keyHandler = (e) => {
+      if (e.key === 'Escape') setMenuOpen(false)
+    }
+
+    document.addEventListener('click', clickHandler)
+    document.addEventListener('keydown', keyHandler)
+    return () => {
+      document.removeEventListener('click', clickHandler)
+      document.removeEventListener('keydown', keyHandler)
+    }
   }, [])
 
   // Changed h-11 to h-10 and px-5 to px-4 for proportional balance
@@ -39,7 +47,7 @@ export default function Navbar() {
 
       <div
         id="nav-root"
-        className="fixed top-4 left-0 w-full flex justify-center z-50 px-4"
+        className="fixed top-4 left-0 w-full flex justify-center z-50 px-2 sm:px-4"
       >
         <div className="flex items-center gap-2 w-full max-w-5xl">
           {/* Changed px-3 to p-2 for a uniform 8px concentric gap around inner buttons */}
@@ -64,7 +72,7 @@ export default function Navbar() {
             <div className="flex items-center gap-2">
               {/* Download CV: Changed h-11 px-7 to h-10 px-6 */}
               <a
-                href="/Wayne's CV.pdf"
+                href="/Wayne-Kiprotich-CV.pdf"
                 download="Wayne_Kiprotich_CV.pdf"
                 className="hidden md:inline-flex items-center justify-center h-10 px-6 rounded-full bg-ink text-surface dark:bg-white dark:text-black text-[15px] font-semibold transition hover:opacity-90"
               >
@@ -73,7 +81,7 @@ export default function Navbar() {
 
               {/* Mobile Menu Button */}
               <button
-                className="md:hidden flex flex-col justify-center items-center h-10 w-10 gap-[5px] rounded-full hover:bg-ink/5 dark:hover:bg-white/5 transition"
+                className="md:hidden flex flex-col justify-center items-center h-10 w-10 relative before:absolute before:-inset-2 gap-[5px] rounded-full hover:bg-ink/5 dark:hover:bg-white/5 transition"
                 aria-label="Menu"
                 onClick={() => setMenuOpen((v) => !v)}
               >
@@ -138,7 +146,7 @@ export default function Navbar() {
 
             <div className="mt-2 pt-2 border-t border-fog dark:border-white/10">
               <a
-                href="/Wayne's CV.pdf"
+                href="/Wayne-Kiprotich-CV.pdf"
                 download="Wayne_Kiprotich_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"

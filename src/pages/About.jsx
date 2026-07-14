@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import useScrollReveal from '../hooks/useScrollReveal'
 import PillTag from '../components/UI/PillTag'
 import SectionDivider from '../components/UI/SectionDivider'
@@ -49,10 +50,18 @@ export default function About() {
   useScrollReveal()
 
   return (
-    <section className="max-w-5xl mx-auto px-6 pt-20 pb-24">
+    <>
+      <Helmet>
+        <title>About | Wayne Kiprotich</title>
+        <meta name="description" content="Learn more about Wayne Kiprotich, a full-stack software engineer building modern web applications." />
+        <meta property="og:title" content="About | Wayne Kiprotich" />
+        <meta property="og:description" content="Learn more about Wayne Kiprotich, a full-stack software engineer building modern web applications." />
+      </Helmet>
+      
+      <section className="w-full max-w-5xl 2xl:max-w-6xl 3xl:max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-24">
       <div className="text-center mb-16 fade-up delay-1">
         <PillTag>About Me</PillTag>
-        <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-ink mt-6 leading-tight">
+        <h1 className="font-serif text-fluid-h1 text-ink mt-6 leading-tight">
           Building modern<br />full-stack systems
         </h1>
       </div>
@@ -64,8 +73,8 @@ export default function About() {
             <div className="w-52 sm:w-60 aspect-[4/5] rounded-[calc(1.5rem-3px)] overflow-hidden">
               <img
                 className="w-full h-full object-cover"
-                src="https://i.pinimg.com/736x/05/19/94/05199421184c6c13ccfdb930a587b546.jpg"
-                alt="Wayne Kiprotich Moi"
+                src="/profile.png"
+                alt="Portrait of Wayne Kiprotich, Software Engineer"
               />
             </div>
           </div>
@@ -75,7 +84,7 @@ export default function About() {
           <PillTag>Full-Stack Engineer</PillTag>
           <SectionDivider />
 
-          <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-5 text-ink">
+          <h2 className="font-serif text-fluid-h2 leading-tight mb-5 text-ink">
             Turning ideas into<br />real products
           </h2>
 
@@ -107,7 +116,7 @@ export default function About() {
       {/* Currently building / timeline */}
       <div className="mb-6 fade-up">
         <PillTag>Currently</PillTag>
-        <h3 className="font-serif text-2xl md:text-3xl text-ink mt-4 mb-8">
+        <h3 className="font-serif text-fluid-h3 text-ink mt-4 mb-8">
           What I've been building
         </h3>
       </div>
@@ -133,7 +142,7 @@ export default function About() {
       {/* Skills */}
       <div className="mb-6 fade-up">
         <PillTag>Toolkit</PillTag>
-        <h3 className="font-serif text-2xl md:text-3xl text-ink mt-4 mb-8">
+        <h3 className="font-serif text-fluid-h3 text-ink mt-4 mb-8">
           Technologies I work with
         </h3>
       </div>
@@ -160,7 +169,7 @@ export default function About() {
 
       {/* CTA */}
       <div className="reveal bg-surface rounded-4xl shadow-apple p-10 sm:p-14 text-center">
-        <h3 className="font-serif text-2xl md:text-3xl text-ink mb-3">
+        <h3 className="font-serif text-fluid-h3 text-ink mb-3">
           Have a project in mind?
         </h3>
         <p className="text-pebble text-[15px] mb-7 max-w-md mx-auto leading-relaxed">
@@ -175,5 +184,6 @@ export default function About() {
         </a>
       </div>
     </section>
+    </>
   )
 }

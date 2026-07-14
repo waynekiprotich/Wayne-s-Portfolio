@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
+import { Helmet } from 'react-helmet-async'
 import useScrollReveal from '../hooks/useScrollReveal'
 import useModal from '../hooks/useModal'
 import PillTag from '../components/UI/PillTag'
@@ -166,14 +167,19 @@ export default function Projects() {
   const activeSortLabel = SORT_OPTIONS.find((o) => o.value === sortBy)?.label || 'Featured'
 
   return (
-    <section className="max-w-6xl mx-auto px-6 pt-24 pb-28">
+    <>
+      <Helmet>
+        <title>Projects | Wayne Kiprotich</title>
+        <meta name="description" content="A collection of products, tools, and client engagements built end-to-end by Wayne Kiprotich." />
+      </Helmet>
+      <section className="w-full max-w-6xl 2xl:max-w-7xl 3xl:max-w-[1600px] mx-auto px-4 sm:px-6 pt-24 pb-28">
       <div className="relative text-center mb-16 fade-up delay-1">
         <div
           className="pointer-events-none absolute -top-16 left-1/2 -translate-x-1/2 w-[560px] h-[280px] rounded-full bg-gradient-to-b from-fog/70 to-transparent blur-3xl -z-10"
           aria-hidden="true"
         />
         <PillTag>Portfolio</PillTag>
-        <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-ink dark:text-white mt-6 leading-tight">
+        <h1 className="font-serif text-fluid-h1 text-ink dark:text-white mt-6">
           Selected Work
         </h1>
         <p className="text-pebble text-[15px] sm:text-base mt-5 max-w-xl mx-auto leading-relaxed">
@@ -279,7 +285,7 @@ export default function Projects() {
       {error ? (
         <div className="text-center py-20 text-red-500 text-[13px]">{error}</div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-6 items-stretch">
           {loading
             ? Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} delay={i * 0.05} />)
             : visibleProjects.length > 0
@@ -301,5 +307,6 @@ export default function Projects() {
         </ModalErrorBoundary>
       )}
     </section>
+    </>
   )
 }

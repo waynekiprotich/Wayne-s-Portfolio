@@ -2,6 +2,15 @@ import { useEffect } from 'react'
 
 export default function useScrollReveal() {
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const observeFallback = () => {
+        document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'))
+      }
+      observeFallback()
+      const tFallback = setTimeout(observeFallback, 100)
+      return () => clearTimeout(tFallback)
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {

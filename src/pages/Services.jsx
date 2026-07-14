@@ -1,4 +1,5 @@
 import useScrollReveal from '../hooks/useScrollReveal'
+import { Helmet } from 'react-helmet-async'
 import PillTag from '../components/UI/PillTag'
 import SectionDivider from '../components/UI/SectionDivider'
 import { Link } from 'react-router-dom'
@@ -59,7 +60,12 @@ export default function Services() {
   ]
 
   return (
-    <section className="max-w-5xl mx-auto px-6 pt-20 pb-24">
+    <>
+      <Helmet>
+        <title>Services | Wayne Kiprotich</title>
+        <meta name="description" content="Professional web development services including custom websites, e-commerce, and full-stack applications." />
+      </Helmet>
+      <section className="max-w-5xl mx-auto px-6 pt-20 pb-24">
       <div className="text-center mb-20 fade-up delay-1">
         <PillTag>Services</PillTag>
         <h1 className="font-serif text-4xl sm:text-6xl text-ink dark:text-white mt-6 leading-tight">
@@ -112,5 +118,6 @@ export default function Services() {
         </Link>
       </div>
     </section>
+    </>
   )
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import useScrollReveal from '../hooks/useScrollReveal'
 import useModal from '../hooks/useModal'
 import PillTag from '../components/UI/PillTag'
@@ -190,7 +191,13 @@ export default function Home() {
 
   return (
     <>
-      <header className="relative max-w-4xl mx-auto text-center px-6 pt-28 pb-24">
+      <Helmet>
+        <title>Wayne Kiprotich | Full-Stack Software Engineer</title>
+        <meta name="description" content="Wayne Kiprotich is a full-stack developer designing and shipping production-ready web platforms." />
+        <meta property="og:title" content="Wayne Kiprotich | Full-Stack Software Engineer" />
+        <meta property="og:description" content="Wayne Kiprotich is a full-stack developer designing and shipping production-ready web platforms." />
+      </Helmet>
+      <header className="relative w-full max-w-4xl 2xl:max-w-5xl 3xl:max-w-6xl mx-auto text-center px-4 sm:px-6 pt-28 pb-24">
         <div
           className="absolute top-16 left-1/2 -translate-x-1/2 w-[520px] h-[320px] rounded-full opacity-20 pointer-events-none"
           style={{
@@ -213,7 +220,7 @@ export default function Home() {
           </div>
         </div>
 
-        <h1 className="fade-up delay-2 font-serif text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-tight mb-6 text-ink dark:text-white">
+        <h1 className="fade-up delay-2 font-serif text-fluid-h1 mb-6 text-ink dark:text-white">
           I build modern, scalable
           <br />
           software 
@@ -242,7 +249,7 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="max-w-6xl mx-auto px-6 pb-16">
+      <section className="w-full max-w-6xl 2xl:max-w-7xl 3xl:max-w-[1600px] mx-auto px-4 sm:px-6 pb-16">
         <div className="flex flex-wrap justify-center gap-4">
           {STATS.map((stat, index) => (
             <div
@@ -250,7 +257,7 @@ export default function Home() {
               className="reveal w-[160px] bg-surface border border-fog dark:border-white/5 rounded-3xl p-5 text-center shadow-apple transition-transform duration-300 hover:-translate-y-1 hover:shadow-apple-lg"
               style={{ transitionDelay: `${index * 60}ms` }}
             >
-              <p className="font-serif text-2xl sm:text-3xl text-ink dark:text-white mb-1">
+              <p className="font-serif text-fluid-h3 text-ink dark:text-white mb-1">
                 {stat.value}
               </p>
 
@@ -262,12 +269,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 py-16">
+      <section className="w-full max-w-6xl 2xl:max-w-7xl 3xl:max-w-[1600px] mx-auto px-4 sm:px-6 py-16">
         <div className="reveal text-center mb-12">
           <PillTag>Capabilities</PillTag>
           <SectionDivider center />
 
-          <h2 className="font-serif text-3xl md:text-4xl text-ink dark:text-white mb-3">
+          <h2 className="font-serif text-fluid-h2 text-ink dark:text-white mb-3">
             My Stack
           </h2>
 
@@ -319,12 +326,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="max-w-5xl mx-auto px-6 py-16">
+      <section className="w-full max-w-5xl 2xl:max-w-6xl 3xl:max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <div className="reveal flex items-end justify-between mb-10">
           <div>
             <PillTag>Portfolio</PillTag>
             <SectionDivider />
-            <h2 className="font-serif text-3xl md:text-4xl text-ink dark:text-white mb-2">
+            <h2 className="font-serif text-fluid-h2 text-ink dark:text-white mb-2">
               Featured Projects
             </h2>
             <p className="text-pebble text-[15px] max-w-md leading-relaxed">
@@ -383,11 +390,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 py-16">
+      <section className="w-full max-w-6xl 2xl:max-w-7xl 3xl:max-w-[1600px] mx-auto px-4 sm:px-6 py-16">
         <div className="reveal text-center mb-12">
           <PillTag>Services</PillTag>
           <SectionDivider center />
-          <h2 className="font-serif text-3xl md:text-4xl text-ink dark:text-white mb-3">
+          <h2 className="font-serif text-fluid-h2 text-ink dark:text-white mb-3">
             What I Can Build For You
           </h2>
           <p className="text-pebble text-[15px] max-w-md mx-auto leading-relaxed">
@@ -395,7 +402,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 3xl:grid-cols-5 gap-4">
           {SERVICES.map((service) => (
             <div
               key={service.title}
@@ -411,11 +418,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-5xl mx-auto px-6 py-16">
+      <section className="w-full max-w-5xl 2xl:max-w-6xl 3xl:max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <div className="reveal text-center mb-12">
           <PillTag>Process</PillTag>
           <SectionDivider center />
-          <h2 className="font-serif text-3xl md:text-4xl text-ink dark:text-white mb-3">
+          <h2 className="font-serif text-fluid-h2 text-ink dark:text-white mb-3">
             How We Would Work Together
           </h2>
           <p className="text-pebble text-[15px] max-w-md mx-auto leading-relaxed">
@@ -437,11 +444,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-5xl mx-auto px-6 py-16">
+      <section className="w-full max-w-5xl 2xl:max-w-6xl 3xl:max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <div className="reveal text-center mb-12">
           <PillTag>Why Work With Me</PillTag>
           <SectionDivider center />
-          <h2 className="font-serif text-3xl md:text-4xl text-ink dark:text-white mb-3">
+          <h2 className="font-serif text-fluid-h2 text-ink dark:text-white mb-3">
             Built On A Simple Standard
           </h2>
           <p className="text-pebble text-[15px] max-w-md mx-auto leading-relaxed">
@@ -464,11 +471,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-3xl mx-auto px-6 py-16">
+      <section className="w-full max-w-3xl 2xl:max-w-4xl 3xl:max-w-5xl mx-auto px-4 sm:px-6 py-16">
         <div className="reveal text-center mb-10">
           <PillTag>FAQ</PillTag>
           <SectionDivider center />
-          <h2 className="font-serif text-3xl md:text-4xl text-ink dark:text-white">
+          <h2 className="font-serif text-fluid-h2 text-ink dark:text-white">
             Common Questions
           </h2>
         </div>
@@ -503,7 +510,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-5xl mx-auto px-6 py-16 pb-24">
+      <section className="w-full max-w-5xl 2xl:max-w-6xl 3xl:max-w-7xl mx-auto px-4 sm:px-6 py-16 pb-24">
         <div className="reveal bg-surface rounded-4xl px-8 py-16 sm:py-20 text-center shadow-apple relative overflow-hidden">
           <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-48 rounded-full opacity-10 pointer-events-none"
@@ -515,7 +522,7 @@ export default function Home() {
 
           <PillTag className="mb-6">Start Your Project</PillTag>
 
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-ink dark:text-white mb-4 leading-tight">
+          <h2 className="font-serif text-fluid-h2 text-ink dark:text-white mb-4">
             Let's build something great together.
           </h2>
 

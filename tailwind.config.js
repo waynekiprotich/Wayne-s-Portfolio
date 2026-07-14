@@ -11,6 +11,18 @@ export default {
         sans: ['DM Sans', 'sans-serif'],
         serif: ['DM Serif Display', 'serif'],
       },
+      screens: {
+        '3xl': '1920px',
+        '4xl': '2560px',
+      },
+      fontSize: {
+        'fluid-h1': ['clamp(2.5rem, 5vw + 1rem, 4.5rem)', { lineHeight: '1.1' }],
+        'fluid-h2': ['clamp(2rem, 4vw + 1rem, 3.5rem)', { lineHeight: '1.2' }],
+        'fluid-h3': ['clamp(1.5rem, 3vw + 0.5rem, 2.25rem)', { lineHeight: '1.3' }],
+        'fluid-base': ['clamp(1rem, 1vw + 0.75rem, 1.125rem)', { lineHeight: '1.6' }],
+        'fluid-lg': ['clamp(1.125rem, 1.5vw + 0.75rem, 1.375rem)', { lineHeight: '1.5' }],
+        'fluid-sm': ['clamp(0.875rem, 0.5vw + 0.75rem, 1rem)', { lineHeight: '1.5' }],
+      },
       colors: {
         ink:     'rgb(var(--c-ink) / <alpha-value>)',
         mist:    'rgb(var(--c-mist) / <alpha-value>)',

@@ -1,11 +1,17 @@
 import useScrollReveal from '../hooks/useScrollReveal'
+import { Helmet } from 'react-helmet-async'
 import PillTag from '../components/UI/PillTag'
 
 export default function Blog() {
   useScrollReveal()
 
   return (
-    <section className="max-w-5xl mx-auto px-6 pt-20 pb-24">
+    <>
+      <Helmet>
+        <title>Blog | Wayne Kiprotich</title>
+        <meta name="description" content="Technical deep dives, architectural breakdowns, and thoughts on software engineering by Wayne Kiprotich." />
+      </Helmet>
+      <section className="max-w-5xl mx-auto px-6 pt-20 pb-24">
       <div className="text-center mb-14 fade-up delay-1">
         <PillTag>Writing</PillTag>
 
@@ -28,5 +34,6 @@ export default function Blog() {
         </p>
       </div>
     </section>
+    </>
   )
 }

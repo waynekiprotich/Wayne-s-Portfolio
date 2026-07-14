@@ -5,6 +5,7 @@ export function useTilt(strength = 15) {
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
 
   const handleMouseMove = useCallback((e) => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     if (!ref.current) return
     const { left, top, width, height } = ref.current.getBoundingClientRect()
     const x = (e.clientX - left) / width - 0.5

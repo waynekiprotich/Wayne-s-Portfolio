@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import PillTag from '../components/UI/PillTag'
 import ProgressHeader from '../components/Estimator/ProgressHeader'
 import OptionCard from '../components/Estimator/OptionCard'
@@ -108,10 +109,15 @@ export default function Estimator() {
   }
 
   return (
-    <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-16 sm:pb-24">
+    <>
+      <Helmet>
+        <title>Project Estimator | Wayne Kiprotich</title>
+        <meta name="description" content="Get a detailed project estimate for your web development project." />
+      </Helmet>
+      <section className="w-full max-w-3xl 2xl:max-w-4xl 3xl:max-w-5xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-16 sm:pb-24">
       <div className="text-center mb-8 sm:mb-10">
         <PillTag>Project Estimator</PillTag>
-        <h1 className="font-serif text-2xl sm:text-4xl text-ink dark:text-white mt-4 sm:mt-6 leading-tight">
+        <h1 className="font-serif text-fluid-h2 text-ink dark:text-white mt-4 sm:mt-6 leading-tight">
           Get a Detailed Project Estimate
         </h1>
         <p className="text-pebble text-sm sm:text-base mt-3 max-w-sm sm:max-w-none mx-auto">
@@ -120,7 +126,7 @@ export default function Estimator() {
       </div>
 
       {/* Scrolls horizontally on narrow screens instead of wrapping/overflowing */}
-      <div className="-mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto no-scrollbar mb-4 sm:mb-0">
+      <div className="-mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto no-scrollbar mb-4 sm:mb-0 pb-2 w-full">
         <ProgressHeader steps={WIZARD_STEPS} currentStep={step} onStepClick={goToStep} />
       </div>
 
@@ -128,7 +134,7 @@ export default function Estimator() {
         <div className="flex-1 text-ink dark:text-white">
           {step === 1 && (
             <div>
-              <h2 className="text-lg sm:text-xl font-semibold mb-4">What kind of project is this?</h2>
+              <h2 className="text-fluid-h3 font-semibold mb-4">What kind of project is this?</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {PROJECT_TYPES.map((type) => (
                   <OptionCard
@@ -148,7 +154,7 @@ export default function Estimator() {
 
           {step === 2 && (
             <div>
-              <h2 className="text-lg sm:text-xl font-semibold mb-5">Tell us about your business</h2>
+              <h2 className="text-fluid-h3 font-semibold mb-5">Tell us about your business</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <FormField
                   label="Company name"
@@ -192,7 +198,7 @@ export default function Estimator() {
           {step === 3 && (
             <div className="space-y-6">
               <div>
-                <h2 className="text-lg sm:text-xl font-semibold mb-4">What are we building?</h2>
+                <h2 className="text-fluid-h3 font-semibold mb-4">What are we building?</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {PROJECT_NATURE.map((item) => (
                     <OptionCard
@@ -227,7 +233,7 @@ export default function Estimator() {
 
           {step === 4 && (
             <div className="space-y-6">
-              <h2 className="text-lg sm:text-xl font-semibold">Pages and scope</h2>
+              <h2 className="text-fluid-h3 font-semibold">Pages and scope</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <FormField
                   label="Number of pages"
@@ -270,7 +276,7 @@ export default function Estimator() {
 
           {step === 5 && (
             <div>
-              <h2 className="text-lg sm:text-xl font-semibold mb-1">Which features do you need?</h2>
+              <h2 className="text-fluid-h3 font-semibold mb-1">Which features do you need?</h2>
               <p className="text-pebble text-sm mb-4">Select all that apply. Skip anything you are not sure about yet.</p>
               <FeatureChecklist
                 groups={FEATURE_GROUPS}
@@ -282,7 +288,7 @@ export default function Estimator() {
 
           {step === 6 && (
             <div>
-              <h2 className="text-lg sm:text-xl font-semibold mb-1">Any integrations you need?</h2>
+              <h2 className="text-fluid-h3 font-semibold mb-1">Any integrations you need?</h2>
               <p className="text-pebble text-sm mb-4">Select any external tools or platforms this should connect with.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {INTEGRATIONS.map((integration) => (
@@ -300,7 +306,7 @@ export default function Estimator() {
           {step === 7 && (
             <div className="space-y-6">
               <div>
-                <h2 className="text-lg sm:text-xl font-semibold mb-4">Design direction</h2>
+                <h2 className="text-fluid-h3 font-semibold mb-4">Design direction</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {DESIGN_STYLES.map((style) => (
                     <OptionCard
@@ -353,7 +359,7 @@ export default function Estimator() {
 
           {step === 8 && (
             <div>
-              <h2 className="text-lg sm:text-xl font-semibold mb-1">Technical requirements</h2>
+              <h2 className="text-fluid-h3 font-semibold mb-1">Technical requirements</h2>
               <p className="text-pebble text-sm mb-4">Select everything you expect to need at launch.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {TECHNICAL_REQUIREMENTS.map((req) => (
@@ -371,7 +377,7 @@ export default function Estimator() {
           {step === 9 && (
             <div className="space-y-8">
               <div>
-                <h2 className="text-lg sm:text-xl font-semibold mb-4">What is your timeline?</h2>
+                <h2 className="text-fluid-h3 font-semibold mb-4">What is your timeline?</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {TIMELINES.map((item) => (
                     <OptionCard
@@ -385,7 +391,7 @@ export default function Estimator() {
                 </div>
               </div>
               <div>
-                <h2 className="text-lg sm:text-xl font-semibold mb-4">What is your budget range?</h2>
+                <h2 className="text-fluid-h3 font-semibold mb-4">What is your budget range?</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {BUDGETS.map((item) => (
                     <OptionCard
@@ -403,7 +409,7 @@ export default function Estimator() {
 
           {step === 10 && (
             <div className="space-y-6">
-              <h2 className="text-lg sm:text-xl font-semibold">Tell us more about the project</h2>
+              <h2 className="text-fluid-h3 font-semibold">Tell us more about the project</h2>
               <FormField
                 label="Project description"
                 type="textarea"
@@ -423,7 +429,7 @@ export default function Estimator() {
 
           {step === 11 && (
             <div>
-              <h2 className="text-lg sm:text-xl font-semibold mb-5">How can we reach you?</h2>
+              <h2 className="text-fluid-h3 font-semibold mb-5">How can we reach you?</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <FormField
                   label="Full name"
@@ -462,7 +468,7 @@ export default function Estimator() {
 
           {step === 12 && !submitted && (
             <div>
-              <h2 className="text-lg sm:text-xl font-semibold mb-5">Your Estimate</h2>
+              <h2 className="text-fluid-h3 font-semibold mb-5">Your Estimate</h2>
               <EstimateSummary data={data} estimate={estimate} />
               {error && <p className="text-red-500 text-sm mt-4">{error}</p>}
               <button
@@ -477,7 +483,7 @@ export default function Estimator() {
 
           {step === 12 && submitted && (
             <div className="text-center py-8">
-              <h2 className="text-xl sm:text-2xl font-semibold mb-3">Request Sent</h2>
+              <h2 className="text-fluid-h3 font-semibold mb-3">Request Sent</h2>
               <p className="text-pebble dark:text-white/80 text-sm sm:text-base">
                 Thanks {data.contact.fullName.split(' ')[0]}. We will reach out at {data.contact.email} within 24 hours
                 to schedule a discovery call.
@@ -522,5 +528,6 @@ export default function Estimator() {
         )}
       </div>
     </section>
+    </>
   )
 }

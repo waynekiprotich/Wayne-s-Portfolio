@@ -1,4 +1,6 @@
+import { memo } from 'react'
 import PillTag from './PillTag'
+import ProgressiveImage from './ProgressiveImage'
 
 function LockIcon(props) {
   return (
@@ -17,7 +19,7 @@ function ArrowIcon(props) {
   )
 }
 
-export default function ProjectCard({
+const ProjectCard = memo(function ProjectCard({
   id,
   tags = [],
   tech = [],
@@ -78,11 +80,11 @@ export default function ProjectCard({
         style={!previewImage ? thumbStyle : {}}
       >
         {previewImage ? (
-          <img
+          <ProgressiveImage
             src={previewImage}
             alt={`${title} preview`}
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+            className="absolute inset-0 w-full h-full z-0"
+            imageClassName="group-hover:scale-[1.06]"
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-fog via-surface to-fog/60 z-0">
@@ -170,4 +172,6 @@ export default function ProjectCard({
       </div>
     </article>
   )
-}
+})
+
+export default ProjectCard

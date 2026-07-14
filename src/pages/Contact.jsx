@@ -1,4 +1,5 @@
 import useScrollReveal from '../hooks/useScrollReveal'
+import { Helmet } from 'react-helmet-async'
 import PillTag from '../components/UI/PillTag'
 import SectionDivider from '../components/UI/SectionDivider'
 
@@ -49,12 +50,17 @@ export default function Contact() {
   useScrollReveal()
 
   return (
-    <section className="max-w-5xl mx-auto px-6 pt-20 pb-24">
+    <>
+      <Helmet>
+        <title>Contact | Wayne Kiprotich</title>
+        <meta name="description" content="Get in touch with Wayne Kiprotich. Open for opportunities, freelance work, and collaborations." />
+      </Helmet>
+      <section className="w-full max-w-5xl 2xl:max-w-6xl 3xl:max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-24">
 
       <div className="text-center mb-16 fade-up delay-1">
         <PillTag>Get in Touch</PillTag>
 
-        <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-ink dark:text-white mt-6 leading-tight">
+        <h1 className="font-serif text-fluid-h1 text-ink dark:text-white mt-6 leading-tight">
           Let's build something
         </h1>
 
@@ -154,5 +160,6 @@ export default function Contact() {
         </div>
       </div>
     </section>
+    </>
   )
 }

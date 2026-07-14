@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import PillTag from './PillTag'
 import useScrollLock from "../../hooks/useScrollLock";
+import ProgressiveImage from './ProgressiveImage'
 
 function ImagePlaceholder({ title, category }) {
   return (
@@ -139,10 +140,10 @@ export default function ProjectPreviewModal({ project, onClose }) {
       >
         <div className="relative aspect-video w-full flex-shrink-0 overflow-hidden bg-fog">
           {previewImage ? (
-            <img
+            <ProgressiveImage
               src={previewImage}
               alt={`${title} screenshot`}
-              className="w-full h-full object-cover"
+              className="w-full h-full z-0"
             />
           ) : (
             <ImagePlaceholder title={title} category={category} />

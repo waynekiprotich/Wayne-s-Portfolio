@@ -11,7 +11,7 @@ export default function FormField({
   min,
 }) {
   const baseClasses =
-    'w-full p-3 rounded-xl border border-fog dark:border-white/10 focus:border-ink dark:focus:border-white outline-none bg-transparent text-sm text-ink dark:text-white placeholder:text-stone'
+    'w-full p-3 rounded-xl border border-fog dark:border-white/10 focus:border-ink dark:focus:border-white outline-none bg-transparent text-base sm:text-sm text-ink dark:text-white placeholder:text-stone'
 
   return (
     <label className="block">

@@ -1,6 +1,7 @@
+import { memo } from 'react'
 import PillTag from './PillTag'
 
-export default function StackCard({
+const StackCard = memo(function StackCard({
   icon,
   title,
   description,
@@ -31,4 +32,6 @@ export default function StackCard({
       </div>
     </div>
   )
-}
+})
+
+export default StackCard

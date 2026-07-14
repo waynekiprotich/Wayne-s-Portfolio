@@ -1,12 +1,17 @@
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://wayne-s-portfolio-backend.onrender.com/api';
 
+let projectsCache = null;
+let blogCache = null;
+
 export const fetchProjects = async () => {
+  if (projectsCache) return projectsCache;
+
   const response = await fetch(`${API_BASE_URL}/projects`);
   if (!response.ok) throw new Error('Failed to fetch projects');
   
   const data = await response.json();
   
-  return data.map(project => ({
+  projectsCache = data.map(project => ({
     ...project,
     previewImage: project.previewImage || project.preview_image || project.image_url || project.imageUrl || project.image || project.cover_image || project.thumbnail || '',
     tags: typeof project.tags === 'string' 
@@ -16,12 +21,16 @@ export const fetchProjects = async () => {
       ? project.tech.split(',').map(t => t.trim()) 
       : (project.tech || [])
   }));
+  return projectsCache;
 };
 
 export const fetchBlogPosts = async () => {
+  if (blogCache) return blogCache;
+
   const response = await fetch(`${API_BASE_URL}/blog`);
   if (!response.ok) throw new Error('Failed to fetch blog posts');
-  return response.json();
+  blogCache = await response.json();
+  return blogCache;
 };
 
 export const sendInquiry = async (inquiryData) => {
