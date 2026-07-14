@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import useScrollReveal from '../hooks/useScrollReveal'
 import useModal from '../hooks/useModal'
 import PillTag from '../components/UI/PillTag'
@@ -191,12 +191,36 @@ export default function Home() {
 
   return (
     <>
-      <Helmet>
-        <title>Wayne Kiprotich | Full-Stack Software Engineer</title>
-        <meta name="description" content="Wayne Kiprotich is a full-stack developer designing and shipping production-ready web platforms." />
-        <meta property="og:title" content="Wayne Kiprotich | Full-Stack Software Engineer" />
-        <meta property="og:description" content="Wayne Kiprotich is a full-stack developer designing and shipping production-ready web platforms." />
-      </Helmet>
+      <SEO 
+        title="Full-Stack Software Engineer"
+        description="Wayne Kiprotich is a full-stack developer designing and shipping production-ready web platforms."
+        url="/"
+        schema={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://www.waynekiprotich.online/#website",
+              "url": "https://www.waynekiprotich.online/",
+              "name": "Wayne Kiprotich Portfolio",
+              "description": "Portfolio of Wayne Kiprotich, Full-Stack Software Engineer."
+            },
+            {
+              "@type": "Person",
+              "@id": "https://www.waynekiprotich.online/#person",
+              "name": "Wayne Kiprotich",
+              "url": "https://www.waynekiprotich.online/",
+              "image": "https://www.waynekiprotich.online/profile.png",
+              "jobTitle": "Software Engineer",
+              "description": "Full-Stack Software Engineer building scalable applications.",
+              "sameAs": [
+                "https://github.com/waynekiprotich",
+                "https://www.linkedin.com/in/wayne-kiprotich-1a8ba6388"
+              ]
+            }
+          ]
+        }}
+      />
       <header className="relative w-full max-w-4xl 2xl:max-w-5xl 3xl:max-w-6xl mx-auto text-center px-4 sm:px-6 pt-28 pb-24">
         <div
           className="absolute top-16 left-1/2 -translate-x-1/2 w-[520px] h-[320px] rounded-full opacity-20 pointer-events-none"
@@ -221,9 +245,9 @@ export default function Home() {
         </div>
 
         <h1 className="fade-up delay-2 font-serif text-fluid-h1 mb-6 text-ink dark:text-white">
-          I build modern, scalable
+          Full-Stack Software Engineer
           <br />
-          software 
+          building modern applications 
         </h1>
 
         <p className="fade-up delay-3 text-pebble text-[15px] sm:text-base max-w-xl mx-auto leading-relaxed mb-10">
@@ -275,7 +299,7 @@ export default function Home() {
           <SectionDivider center />
 
           <h2 className="font-serif text-fluid-h2 text-ink dark:text-white mb-3">
-            My Stack
+            My Tech Stack
           </h2>
 
           <p className="text-pebble text-[15px] max-w-md mx-auto leading-relaxed">
@@ -332,7 +356,7 @@ export default function Home() {
             <PillTag>Portfolio</PillTag>
             <SectionDivider />
             <h2 className="font-serif text-fluid-h2 text-ink dark:text-white mb-2">
-              Featured Projects
+              Featured Software Engineering Projects
             </h2>
             <p className="text-pebble text-[15px] max-w-md leading-relaxed">
               A selection of recent builds spanning products, dashboards, and internal tools.
@@ -395,7 +419,7 @@ export default function Home() {
           <PillTag>Services</PillTag>
           <SectionDivider center />
           <h2 className="font-serif text-fluid-h2 text-ink dark:text-white mb-3">
-            What I Can Build For You
+            Web Development Services
           </h2>
           <p className="text-pebble text-[15px] max-w-md mx-auto leading-relaxed">
             From a single landing page to a full internal system, here is where I typically help.
@@ -449,7 +473,7 @@ export default function Home() {
           <PillTag>Why Work With Me</PillTag>
           <SectionDivider center />
           <h2 className="font-serif text-fluid-h2 text-ink dark:text-white mb-3">
-            Built On A Simple Standard
+            Software Engineering Standards
           </h2>
           <p className="text-pebble text-[15px] max-w-md mx-auto leading-relaxed">
             The principles that guide every project, regardless of size or budget.

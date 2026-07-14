@@ -1,5 +1,5 @@
 import useScrollReveal from '../hooks/useScrollReveal'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import PillTag from '../components/UI/PillTag'
 
 export default function Blog() {
@@ -7,16 +7,17 @@ export default function Blog() {
 
   return (
     <>
-      <Helmet>
-        <title>Blog | Wayne Kiprotich</title>
-        <meta name="description" content="Technical deep dives, architectural breakdowns, and thoughts on software engineering by Wayne Kiprotich." />
-      </Helmet>
+      <SEO 
+        title="Software Engineering Blog & Insights"
+        description="Technical deep dives, architectural breakdowns, and thoughts on software engineering by Wayne Kiprotich."
+        url="/blog"
+      />
       <section className="max-w-5xl mx-auto px-6 pt-20 pb-24">
       <div className="text-center mb-14 fade-up delay-1">
         <PillTag>Writing</PillTag>
 
         <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-ink dark:text-white mt-6 leading-tight">
-          Thoughts & Insights
+          Software Engineering Blog
         </h1>
 
         <p className="text-pebble text-[15px] mt-4 max-w-md mx-auto leading-relaxed">

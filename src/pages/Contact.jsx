@@ -1,5 +1,5 @@
 import useScrollReveal from '../hooks/useScrollReveal'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import PillTag from '../components/UI/PillTag'
 import SectionDivider from '../components/UI/SectionDivider'
 
@@ -51,17 +51,25 @@ export default function Contact() {
 
   return (
     <>
-      <Helmet>
-        <title>Contact | Wayne Kiprotich</title>
-        <meta name="description" content="Get in touch with Wayne Kiprotich. Open for opportunities, freelance work, and collaborations." />
-      </Helmet>
+      <SEO 
+        title="Contact Wayne Kiprotich | Full-Stack Developer"
+        description="Get in touch with Wayne Kiprotich. Open for opportunities, freelance work, and collaborations in software engineering."
+        url="/contact"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Contact Wayne Kiprotich",
+          "description": "Get in touch for web development and software engineering projects.",
+          "url": "https://www.waynekiprotich.online/contact"
+        }}
+      />
       <section className="w-full max-w-5xl 2xl:max-w-6xl 3xl:max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-24">
 
       <div className="text-center mb-16 fade-up delay-1">
         <PillTag>Get in Touch</PillTag>
 
         <h1 className="font-serif text-fluid-h1 text-ink dark:text-white mt-6 leading-tight">
-          Let's build something
+          Hire a Full-Stack Developer
         </h1>
 
         <p className="text-pebble text-[15px] mt-4 max-w-sm mx-auto leading-relaxed">

@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import useScrollReveal from '../hooks/useScrollReveal'
 import PillTag from '../components/UI/PillTag'
 import SectionDivider from '../components/UI/SectionDivider'
@@ -51,18 +51,27 @@ export default function About() {
 
   return (
     <>
-      <Helmet>
-        <title>About | Wayne Kiprotich</title>
-        <meta name="description" content="Learn more about Wayne Kiprotich, a full-stack software engineer building modern web applications." />
-        <meta property="og:title" content="About | Wayne Kiprotich" />
-        <meta property="og:description" content="Learn more about Wayne Kiprotich, a full-stack software engineer building modern web applications." />
-      </Helmet>
+      <SEO 
+        title="Full-Stack Developer based in Nairobi"
+        description="Learn more about Wayne Kiprotich, a full-stack software engineer building modern web applications."
+        url="/about"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ProfilePage",
+          "mainEntity": {
+            "@type": "Person",
+            "name": "Wayne Kiprotich",
+            "jobTitle": "Full Stack Developer",
+            "description": "Full-stack engineer based in Nairobi, working independently with clients and on own products."
+          }
+        }}
+      />
       
       <section className="w-full max-w-5xl 2xl:max-w-6xl 3xl:max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-24">
       <div className="text-center mb-16 fade-up delay-1">
         <PillTag>About Me</PillTag>
         <h1 className="font-serif text-fluid-h1 text-ink mt-6 leading-tight">
-          Building modern<br />full-stack systems
+          Full-Stack Developer<br />based in Nairobi
         </h1>
       </div>
 

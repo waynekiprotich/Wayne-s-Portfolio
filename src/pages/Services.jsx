@@ -1,5 +1,5 @@
 import useScrollReveal from '../hooks/useScrollReveal'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import PillTag from '../components/UI/PillTag'
 import SectionDivider from '../components/UI/SectionDivider'
 import { Link } from 'react-router-dom'
@@ -61,10 +61,25 @@ export default function Services() {
 
   return (
     <>
-      <Helmet>
-        <title>Services | Wayne Kiprotich</title>
-        <meta name="description" content="Professional web development services including custom websites, e-commerce, and full-stack applications." />
-      </Helmet>
+      <SEO 
+        title="Professional Web Development Services"
+        description="Professional web development services including custom websites, e-commerce, and full-stack applications in Kenya."
+        url="/services"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "Web Development",
+          "provider": {
+            "@type": "Person",
+            "name": "Wayne Kiprotich"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Kenya"
+          },
+          "description": "Custom websites, e-commerce, and full-stack web applications."
+        }}
+      />
       <section className="max-w-5xl mx-auto px-6 pt-20 pb-24">
       <div className="text-center mb-20 fade-up delay-1">
         <PillTag>Services</PillTag>

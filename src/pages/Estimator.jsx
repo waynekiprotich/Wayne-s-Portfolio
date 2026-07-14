@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import PillTag from '../components/UI/PillTag'
 import ProgressHeader from '../components/Estimator/ProgressHeader'
 import OptionCard from '../components/Estimator/OptionCard'
@@ -110,15 +110,16 @@ export default function Estimator() {
 
   return (
     <>
-      <Helmet>
-        <title>Project Estimator | Wayne Kiprotich</title>
-        <meta name="description" content="Get a detailed project estimate for your web development project." />
-      </Helmet>
+      <SEO 
+        title="Project Estimator | Web Development Cost"
+        description="Get a detailed project estimate for your custom web development or software engineering project."
+        url="/estimator"
+      />
       <section className="w-full max-w-3xl 2xl:max-w-4xl 3xl:max-w-5xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-16 sm:pb-24">
       <div className="text-center mb-8 sm:mb-10">
         <PillTag>Project Estimator</PillTag>
         <h1 className="font-serif text-fluid-h2 text-ink dark:text-white mt-4 sm:mt-6 leading-tight">
-          Get a Detailed Project Estimate
+          Web Development Project Estimator
         </h1>
         <p className="text-pebble text-sm sm:text-base mt-3 max-w-sm sm:max-w-none mx-auto">
           A short discovery process that helps us understand your project and give you a realistic estimate.

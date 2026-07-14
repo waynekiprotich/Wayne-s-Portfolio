@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import useScrollReveal from '../hooks/useScrollReveal'
 import useModal from '../hooks/useModal'
 import PillTag from '../components/UI/PillTag'
@@ -168,10 +168,18 @@ export default function Projects() {
 
   return (
     <>
-      <Helmet>
-        <title>Projects | Wayne Kiprotich</title>
-        <meta name="description" content="A collection of products, tools, and client engagements built end-to-end by Wayne Kiprotich." />
-      </Helmet>
+      <SEO 
+        title="Software Engineering Projects"
+        description="A collection of full-stack products, tools, and client engagements built end-to-end by Wayne Kiprotich."
+        url="/projects"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Software Engineering Projects - Wayne Kiprotich",
+          "description": "A collection of full-stack products, tools, and client engagements built end-to-end by Wayne Kiprotich.",
+          "url": "https://www.waynekiprotich.online/projects"
+        }}
+      />
       <section className="w-full max-w-6xl 2xl:max-w-7xl 3xl:max-w-[1600px] mx-auto px-4 sm:px-6 pt-24 pb-28">
       <div className="relative text-center mb-16 fade-up delay-1">
         <div
@@ -180,7 +188,7 @@ export default function Projects() {
         />
         <PillTag>Portfolio</PillTag>
         <h1 className="font-serif text-fluid-h1 text-ink dark:text-white mt-6">
-          Selected Work
+          Software Engineering Projects
         </h1>
         <p className="text-pebble text-[15px] sm:text-base mt-5 max-w-xl mx-auto leading-relaxed">
           A collection of products, tools, and client engagements built end-to-end &mdash;
