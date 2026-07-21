@@ -34,14 +34,6 @@ function Section({ title, children }) {
   )
 }
 
-function ArrowIcon(props) {
-  return (
-    <svg viewBox="0 0 12 12" fill="none" aria-hidden="true" {...props}>
-      <path d="M2.5 9.5l7-7M9.5 2.5h-6M9.5 2.5v6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  )
-}
-
 function LockIcon(props) {
   return (
     <svg viewBox="0 0 14 14" fill="none" aria-hidden="true" {...props}>
@@ -253,10 +245,8 @@ export default function ProjectPreviewModal({ project, onClose }) {
                   href={resolvedLive}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group/btn flex-1 flex items-center justify-center gap-1.5 bg-ink text-surface dark:bg-white dark:text-black text-center text-[13px] font-medium py-3 rounded-full hover:opacity-80 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink dark:focus-visible:outline-white"
                 >
                   Live Demo
-                  <ArrowIcon className="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                 </a>
               )}
 
@@ -265,10 +255,8 @@ export default function ProjectPreviewModal({ project, onClose }) {
                   href={resolvedCode}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group/btn flex-1 flex items-center justify-center gap-1.5 bg-ink/5 text-ink dark:bg-white/10 dark:text-white text-center text-[13px] font-medium py-3 rounded-full hover:bg-ink/10 dark:hover:bg-white/20 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink dark:focus-visible:outline-white"
                 >
                   View Code
-                  <ArrowIcon className="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                 </a>
               ) : (
                 <span className="flex-1 flex items-center justify-center gap-1.5 bg-ink/5 dark:bg-white/5 text-stone dark:text-white/40 text-center text-[13px] font-medium py-3 rounded-full cursor-not-allowed">

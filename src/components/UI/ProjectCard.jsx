@@ -11,14 +11,6 @@ function LockIcon(props) {
   )
 }
 
-function ArrowIcon(props) {
-  return (
-    <svg viewBox="0 0 12 12" fill="none" aria-hidden="true" {...props}>
-      <path d="M2.5 9.5l7-7M9.5 2.5h-6M9.5 2.5v6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  )
-}
-
 const ProjectCard = memo(function ProjectCard({
   id,
   tags = [],
@@ -135,10 +127,8 @@ const ProjectCard = memo(function ProjectCard({
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="group/btn flex items-center justify-center gap-1.5 bg-ink text-surface dark:bg-white dark:text-black hover:opacity-80 transition flex-1 text-center text-[11px] font-medium py-2.5 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink dark:focus-visible:outline-white"
             >
               Code
-              <ArrowIcon className="w-2.5 h-2.5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
             </a>
           ) : (
             <span className="flex items-center justify-center gap-1.5 bg-ink/5 dark:bg-white/5 text-stone dark:text-white/40 flex-1 text-center text-[11px] font-medium py-2.5 rounded-full cursor-not-allowed">
@@ -153,10 +143,8 @@ const ProjectCard = memo(function ProjectCard({
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="group/btn flex items-center justify-center gap-1.5 bg-ink/5 text-ink dark:bg-white/10 dark:text-white hover:bg-ink/10 dark:hover:bg-white/20 transition flex-1 text-center text-[11px] font-medium py-2.5 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink dark:focus-visible:outline-white"
             >
               Live
-              <ArrowIcon className="w-2.5 h-2.5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
             </a>
           )}
         </div>
