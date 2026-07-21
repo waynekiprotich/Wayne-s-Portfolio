@@ -6,6 +6,7 @@ export default function ProgressiveImage({
   className = '',
   imageClassName = '',
   skeletonClassName = '',
+  priority = false,
   ...props
 }) {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -23,7 +24,8 @@ export default function ProgressiveImage({
       <img
         src={src}
         alt={alt}
-        loading="lazy"
+        loading={priority ? undefined : "lazy"}
+        fetchPriority={priority ? "high" : "auto"}
         decoding="async"
         onLoad={() => setIsLoaded(true)}
         className={`w-full h-full object-cover transition-all duration-700 ease-out z-10 relative ${

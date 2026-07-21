@@ -301,8 +301,10 @@ export default function Projects() {
                 <ProjectCard
                   key={p.id}
                   {...p}
+                  project={p}
                   delay={Math.min(i, 6) * 0.06}
-                  onPreview={() => openModal(p)}
+                  onPreview={openModal}
+                  priority={i < 4}
                 />
               ))
             : <EmptyState onReset={resetFilters} />}

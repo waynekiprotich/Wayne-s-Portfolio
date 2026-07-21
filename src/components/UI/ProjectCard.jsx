@@ -35,6 +35,8 @@ const ProjectCard = memo(function ProjectCard({
   liveHref = '#',
   github,
   live,
+  project,
+  priority = false,
 }) {
   const resolvedCode = github || (codeHref !== '#' ? codeHref : '')
   const resolvedLive = live || (liveHref !== '#' ? liveHref : '')
@@ -44,19 +46,7 @@ const ProjectCard = memo(function ProjectCard({
   const extraTagCount = resolvedTags.length - visibleTags.length
 
   const handleActivate = () => {
-    onPreview &&
-      onPreview({
-        id,
-        title,
-        description,
-        category,
-        tags: resolvedTags,
-        tech,
-        previewImage,
-        codeHref: resolvedCode,
-        liveHref: resolvedLive,
-        featured,
-      })
+    onPreview && onPreview(project)
   }
 
   return (
@@ -85,6 +75,7 @@ const ProjectCard = memo(function ProjectCard({
             alt={`${title} preview`}
             className="absolute inset-0 w-full h-full z-0"
             imageClassName="group-hover:scale-[1.06]"
+            priority={priority}
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-fog via-surface to-fog/60 z-0">
