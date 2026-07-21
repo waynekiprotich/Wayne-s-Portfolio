@@ -245,6 +245,7 @@ export default function ProjectPreviewModal({ project, onClose }) {
                   href={resolvedLive}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="group/btn flex-1 flex items-center justify-center gap-1.5 bg-ink text-surface dark:bg-white dark:text-black text-center text-[13px] font-medium py-3 rounded-full hover:opacity-80 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink dark:focus-visible:outline-white"
                 >
                   Live Demo
                 </a>
@@ -255,6 +256,7 @@ export default function ProjectPreviewModal({ project, onClose }) {
                   href={resolvedCode}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="group/btn flex-1 flex items-center justify-center gap-1.5 bg-ink/5 text-ink dark:bg-white/10 dark:text-white text-center text-[13px] font-medium py-3 rounded-full hover:bg-ink/10 dark:hover:bg-white/20 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink dark:focus-visible:outline-white"
                 >
                   View Code
                 </a>

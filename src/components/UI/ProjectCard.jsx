@@ -127,6 +127,7 @@ const ProjectCard = memo(function ProjectCard({
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
+              className="group/btn flex items-center justify-center gap-1.5 bg-ink text-surface dark:bg-white dark:text-black hover:opacity-80 transition flex-1 text-center text-[11px] font-medium py-2.5 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink dark:focus-visible:outline-white"
             >
               Code
             </a>
@@ -143,6 +144,7 @@ const ProjectCard = memo(function ProjectCard({
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
+              className="group/btn flex items-center justify-center gap-1.5 bg-ink/5 text-ink dark:bg-white/10 dark:text-white hover:bg-ink/10 dark:hover:bg-white/20 transition flex-1 text-center text-[11px] font-medium py-2.5 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink dark:focus-visible:outline-white"
             >
               Live
             </a>

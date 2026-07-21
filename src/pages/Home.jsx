@@ -399,7 +399,7 @@ export default function Home() {
           {!loading &&
             homeProjects.map((p) => (
               <div key={p.id} className="transition-transform duration-300 hover:-translate-y-1">
-                <ProjectCard {...p} onPreview={() => openModal(p)} />
+                <ProjectCard {...p} project={p} onPreview={openModal} />
               </div>
             ))}
         </div>
